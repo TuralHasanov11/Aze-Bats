@@ -1,0 +1,27 @@
+{% extends 'app.html' %} 
+{% load i18n %} 
+{% load static %} 
+{% block title %}{% translate "Articles" %}{% endblock title %} 
+{% block content %}
+
+{% translate "Articles" as promo_title%}
+
+{% with promo_image=article_promo_image.url %}
+{% include "components/promo.html" with promo_image=promo_image promo_title=promo_title %}
+{% endwith %}
+<section class="section no-padding-top">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-xl-10">
+        <h4 class="elements__title">{{promo_title}}</h4>
+      </div>
+      {% for article in articles %}
+        {% include "components/article.html" with article=article %}
+      {% endfor %}
+      <div class="col-12 text-center">
+        {% include "components/pagination.html" with pagination=articles %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

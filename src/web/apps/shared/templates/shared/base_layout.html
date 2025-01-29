@@ -1,0 +1,42 @@
+{% load static %} 
+{% load i18n %} 
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_available_languages as LANGUAGES %} 
+{% get_language_info_list for LANGUAGES as languages%}
+<!DOCTYPE html>
+<html lang="{{CURRENT_LANGUAGE}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="{% block description %}{% endblock description %}"
+    />
+
+    {% include "shared/base_stylesheets.html" %}
+
+    <title>{% block title %}{% endblock title %} | {{app_name}}</title>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'base/img/logo/favicon.png' %}" />
+  </head>
+
+  <body>
+    <div class="preloader">
+      <div class="loader"></div>
+    </div>
+
+    {% include "shared/base_header.html" %}
+
+    {% include "shared/base_search.html" %}
+
+    <main class="main">{% block content %} {% endblock content %}</main>
+
+    {% include "shared/base_footer.html" %}
+
+    <a href="#" id="scroll-top"><i class="far fa-angle-double-up"></i></a>
+
+    {% include "shared/base_scripts.html" %}
+  </body>
+</html>

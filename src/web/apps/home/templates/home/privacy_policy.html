@@ -1,0 +1,28 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block title %}{% translate "Privacy Policy" %}{% endblock title %}
+{% block content %}
+
+{% translate "Privacy Policy" as promo_title%}
+
+{% with promo_image=privacy_policy_promo_image.url %}
+{% include "components/promo.html" with promo_image=promo_image promo_title=promo_title %}
+{% endwith %}
+
+<section class="section events-carousel">
+  <img class="events-carousel__bg" src="{% static 'img/skin-bg.jpg' %}" alt="bg"/>
+    <div class="container">
+      <div class="row bottom-50 align-items-end">
+        <div class="col-xl-10">
+          <h4 class="elements__title">{{promo_title}}</h4>
+        </div>
+        <div class="col-lg-12">
+          {{privacy_policy_text|safe}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}
