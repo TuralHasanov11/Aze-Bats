@@ -1,0 +1,14 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block title %}{% translate "Projects" %}{% endblock title %}
+{% block content %}
+
+
+{% with breadcrumb_image=static 'base/img/breadcrumb/01.jpg' breadcrumb_title=translate 'Projects' %}
+  {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
+{% endwith %}
+
+{% include "activities/projects/project_list.html" with projects=projects %}
+
+{% endblock content %}

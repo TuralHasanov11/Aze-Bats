@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div class="event-area bg py-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="site-heading text-center">
+          <span class="site-title-tagline">{% translate "Site Visits" %}</span>
+          <h2 class="site-title">{% translate "Our Recent Site Visits" %}</h2>
+          <p>It is a long established fact that a reader will be distracted</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for site_visit in site_visits %}
+      <div class="col-md-6">
+        {% include "activities/site_visits/site_visit_list_item.html" with site_visit=site_visit %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

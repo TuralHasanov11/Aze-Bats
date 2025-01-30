@@ -1,4 +1,4 @@
-from apps.bats import models
+from apps.species import models
 from django.contrib import admin
 
 

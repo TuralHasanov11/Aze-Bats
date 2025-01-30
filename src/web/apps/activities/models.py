@@ -9,7 +9,6 @@ from apps.shared.models import (
     RichTextField,
     SlugField,
 )
-from apps.shared.helpers import UploadImageStrategy, generate_slug
 from django.utils.translation import gettext_lazy as _
 
 
@@ -40,14 +39,10 @@ class Project(models.Model):
         verbose_name_plural = _("Projects")
 
     def __str__(self):
-        return self.slug
-
-    def save(self, *args, **kwargs):
-        self.slug = generate_slug(self.name)
-        return super().save(*args, **kwargs)
+        return self.name
 
     def get_absolute_url(self):
-        return reverse("project:detail", kwargs={"slug": self.slug})
+        return reverse("apps.activities:project-detail", kwargs={"slug": self.slug})
 
 
 class SiteVisitManager(models.Manager):
@@ -64,9 +59,8 @@ class SiteVisitManager(models.Manager):
 class SiteVisit(models.Model):
     name = NameField()
     slug = SlugField()
-    cover_image = models.ImageField(upload_to=UploadImageStrategy("projects").upload_to)
+    cover_image = ImageField("site_visits", _("Cover Image"))
     description = RichTextField()
-    results = RichTextField()
     language = LanguageField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -78,11 +72,7 @@ class SiteVisit(models.Model):
         verbose_name_plural = _("Site Visits")
 
     def __str__(self):
-        return self.slug
-
-    def save(self, *args, **kwargs):
-        self.slug = generate_slug(self.name)
-        return super().save(*args, **kwargs)
+        return self.name
 
     def get_absolute_url(self):
-        return reverse("site_visit:detail", kwargs={"slug": self.slug})
+        return reverse("apps.activities:site-visit-detail", kwargs={"slug": self.slug})

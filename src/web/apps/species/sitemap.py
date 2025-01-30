@@ -1,4 +1,4 @@
-from apps.bats.models import Bat
+from apps.species.models import Bat
 from django.contrib.sitemaps import Sitemap
 
 

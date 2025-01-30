@@ -4,7 +4,7 @@ from django.views import View
 from django.core.paginator import Paginator
 from django.utils.translation import get_language
 
-from apps.bats.models import Bat
+from apps.species.models import Bat
 
 
 import logging

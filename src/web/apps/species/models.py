@@ -11,7 +11,6 @@ from apps.shared.models import (
     RichTextField,
     SlugField,
 )
-from apps.shared.helpers import generate_slug
 
 
 class FamilyManager(models.Manager):
@@ -37,10 +36,6 @@ class Family(models.Model):
 
     def __str__(self):
         return self.name
-
-    def save(self, *args, **kwargs):
-        self.slug = generate_slug(self.name)
-        return super().save(*args, **kwargs)
 
 
 class GenusManager(models.Manager):
@@ -68,16 +63,12 @@ class Genus(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        self.slug = generate_slug(self.name)
-        return super().save(*args, **kwargs)
-
 
 class BatManager(models.Manager):
     def get_by_slug(self, slug: str, language: str) -> Optional[Bat]:
         return self.get_queryset().filter(slug=slug).first()
 
-    def list(self, language: str) -> models.QuerySet[Bat]:
+    def list(self, language: Optional[str] = "") -> models.QuerySet[Bat]:
         return self.get_queryset().all()
 
 
@@ -100,10 +91,6 @@ class Bat(models.Model):
 
     def get_absolute_url(self):
         return reverse("species:detail", kwargs={"slug": self.slug})
-
-    def save(self, *args, **kwargs):
-        self.slug = generate_slug(self.name)
-        return super().save(*args, **kwargs)
 
 
 class BatAttributes(models.Model):

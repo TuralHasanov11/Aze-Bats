@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib.sitemaps.views import sitemap
-from apps.bats import sitemap as bats_sitemap
+from apps.species import sitemap as bats_sitemap
 from apps.activities import sitemap as activities_sitemap
 from apps.articles import sitemap as articles_sitemap
 from apps.home import sitemap as home_sitemap

@@ -1,5 +1,5 @@
 from typing import Dict, Optional, Any
-from apps.bats.models import Bat
+from apps.species.models import Bat
 from apps.shared.specification import Specification
 
 

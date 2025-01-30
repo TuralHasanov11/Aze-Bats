@@ -4,25 +4,65 @@
 {% block title %}{% translate "About Us" %}{% endblock title %}
 {% block content %}
 
-{% translate "About Us" as promo_title%}
 
-{% with promo_image=about_promo_image.url %}
-{% include "components/promo.html" with promo_image=promo_image promo_title=promo_title %}
+{% with breadcrumb_image=static 'base/img/breadcrumb/01.jpg' breadcrumb_title=translate 'About Us' %}
+  {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
 
-<section class="section events-carousel">
-  <img class="events-carousel__bg" src="{% static 'img/skin-bg.jpg' %}" alt="bg"/>
-    <div class="container">
-      <div class="row bottom-50 align-items-end">
-        <div class="col-xl-10">
-          <h4 class="elements__title">{{promo_title}}</h4>
-        </div>
-        <div class="col-lg-12">
-          {{about_text}}
+<div
+        class="site-breadcrumb"
+        style="background: url({% static 'base/img/breadcrumb/01.jpg' %})"
+      >
+        <div class="container">
+          <h2 class="breadcrumb-title">{% translate "About Us" %}</h2>
+          <ul class="breadcrumb-menu">
+            <li><a href="index.html">{% translate "Home" %}</a></li>
+            <li class="active">{% translate "About Us" %}</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
 
+      <div class="about-area py-120">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="about-left">
+                <div class="about-img">
+                  <img
+                    class="about-img-1"
+                    src="{% static 'base/img/about/01.png' %}"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="about-right">
+                <div class="site-heading mb-3">
+                  <span class="site-title-tagline">{% translate "About Us" %}</span>
+                  <h2 class="site-title">
+                    Get closer to wonders of the natural world
+                  </h2>
+                </div>
+                <p class="about-text">
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in some
+                  form, by injected humour, or randomised words which don't look
+                  even slightly believable.
+                </p>
+                <a href="{% url 'apps.species:bat-list' %}" class="theme-btn mt-4"
+                  >{% translate "Discover More" %} <i class="far fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      {% include "home/components/species_counter.html" with family_count=family_count genus_count=genus_count bat_count=bat_count %}
+
+
+      {% include "home/components/author_list.html" with authors=authors %}
 
 {% endblock content %}

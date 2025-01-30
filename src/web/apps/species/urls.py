@@ -1,4 +1,4 @@
-from apps.bats import views
+from apps.species import views
 from django.urls import path
 
 app_name = "apps.bats"

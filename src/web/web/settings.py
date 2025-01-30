@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "csp",
     "axes",
     "apps.home",
-    "apps.bats",
+    "apps.species",
     "apps.activities",
     "apps.articles",
     "apps.shared",

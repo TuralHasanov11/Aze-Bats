@@ -1,0 +1,31 @@
+<div class="service-area py-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="site-heading text-center">
+          <span class="site-title-tagline">{% translate "Articles" %}</span>
+          <h2 class="site-title">{% translate "Our Recent Articles" %}</h2>
+          <p>It is a long established fact that a reader will be distracted</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for article in articles %}
+      <div class="col-md-6 col-lg-3">
+        <div class="service-item">
+          <div class="service-content">
+            <h4 class="service-title">
+              <a href="{{article.url}}" target="_blank">{{article.name}}</a>
+            </h4>
+            <div class="service-arrow">
+              <a href="{{article.url}}" target="_blank" class="service-btn"
+                >{% translate "Read More" %} <i class="far fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="animal-area bg py-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="site-heading text-center">
+          <h2 class="site-title">{% translate "Families" %}</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis,
+            rem.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="animal-slider owl-carousel owl-theme">
+      {% for family in families %}
+      <div class="animal-item">
+        <div class="animal-img">
+          <img
+            src="{% static 'base/img/icon/lion.svg' %}"
+            alt="{{family.name}} cover image"
+          />
+        </div>
+        <h6 class="animal-title">{{family.name}}</h6>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

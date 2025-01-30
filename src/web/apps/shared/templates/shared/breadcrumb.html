@@ -1,0 +1,14 @@
+<div class="site-breadcrumb" style="background: url({{breadcrumb_image}})">
+  <div class="container">
+    <h2 class="breadcrumb-title">{{breadcrumb_title}}</h2>
+    <ul class="breadcrumb-menu">
+      {% for item in breadcrumb_menu %}
+      <li class="{% if forloop.last %}active{% endif %}">
+        {% if not forloop.last %}
+        <a href="{{ item.url }}">{{ item.name }}</a>
+        {% else %} {{ item.name }} {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

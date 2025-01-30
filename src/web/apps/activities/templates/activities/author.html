@@ -1,0 +1,16 @@
+<div class="blog-author">
+  <div class="blog-author-img">
+    <img
+      src="{% static 'base/img/blog/author.jpg' %}"
+      alt="{{author.name}} image"
+    />
+  </div>
+  <div class="author-info">
+    <h6>{% translate "Author" %}</h6>
+    <h3 class="author-name">{{author.name}}</h3>
+    <p>{{author.bio}}</p>
+    <div class="author-social">
+      {% include with social_links=author.social_links %}
+    </div>
+  </div>
+</div>

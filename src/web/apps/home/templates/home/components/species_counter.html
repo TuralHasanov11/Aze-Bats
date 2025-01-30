@@ -1,0 +1,59 @@
+<div class="counter-area pb-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-sm-6">
+        <div class="counter-box">
+          <div class="icon">
+            <img src="{% static 'base/img/icon/animal.svg' %}" alt="{% translate "Family icon" %}" />
+          </div>
+          <div>
+            <span
+              class="counter"
+              data-count="+"
+              data-to="{{family_count}}"
+              data-speed="3000"
+              >{{family_count}}</span
+            >
+            <h6 class="title">+ {% translate "Total Families" %}</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <div class="counter-box">
+          <div class="icon">
+            <img src="{% static 'base/img/icon/animal.svg' %}" alt="{% translate "Genus icon" %}" />
+          </div>
+          <div>
+            <span
+              class="counter"
+              data-count="+"
+              data-to="{{genus_count}}"
+              data-speed="3000"
+              >{{genus_count}}</span
+            >
+            <h6 class="title">+ {% translate "Total Genus" %}</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <div class="counter-box">
+          <div class="icon">
+            <img src="{% static 'base/img/icon/animal.svg' %}" alt="{% translate "Bat icon" %}" />
+          </div>
+          <div>
+            <span
+              class="counter"
+              data-count="+"
+              data-to="{{bat_count}}"
+              data-speed="3000"
+              >{{bat_count}}</span
+            >
+            <h6 class="title">+ {% translate "Total Bats" %}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

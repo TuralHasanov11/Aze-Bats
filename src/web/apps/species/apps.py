@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BatsConfig(AppConfig):
+class SpeciesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.bats'
+    name = 'apps.species'

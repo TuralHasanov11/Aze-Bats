@@ -1,0 +1,63 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block title %}{{site_visit.name}}{% endblock title %}
+{% block content %}
+
+
+{% with breadcrumb_image=static 'base/img/breadcrumb/01.jpg' breadcrumb_title=site_visit.name %}
+  {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
+{% endwith %}
+
+<div class="event-single py-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="event-details">
+          <img src="{% if site_visit.cover_image %}{{site_visit.cover_image.url}}{% endif %}" alt="" />
+          <div class="my-4">
+            <h3 class="mb-2">{{site_visit.name}}</h3>
+            {{site_visit.description}}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <aside class="sidebar">
+          <div class="widget search">
+            <h5 class="widget-title">Search</h5>
+            <form class="search-form">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search Here..."
+              />
+              <button type="submit"><i class="far fa-search"></i></button>
+            </form>
+          </div>
+
+          <div class="widget recent-post">
+            <h5 class="widget-title">{% translate "Recent Site Visits" %}</h5>
+            {% for recent_site_visit in recent_site_visits %}
+            {% include "activities/site_visits/recent_site_visit_list_item.html" with site_visit=recent_site_visit %}
+            {% endfor %}
+
+          </div>
+
+          <div class="widget social-share">
+            <h5 class="widget-title">{% translate "Follow Us" %}</h5>
+            <div class="social-share-link">
+              {% include "activities/author.html" with social_links=author.social_links %}
+            </div>
+          </div>
+
+
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+
+      

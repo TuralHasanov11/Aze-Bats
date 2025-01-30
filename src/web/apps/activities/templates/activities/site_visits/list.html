@@ -1,0 +1,20 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block title %}{% translate "Site Visits" %}{% endblock title %}
+{% block content %}
+
+
+{% with breadcrumb_image=static 'base/img/breadcrumb/01.jpg' breadcrumb_title=translate 'Site Visits' %}
+  {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
+{% endwith %}
+
+{% include "activities/site_visits/site_visit_list.html" with site_visits=site_visits %}
+
+{% endblock content %}
+
+
+
+
+
+

@@ -10,7 +10,6 @@ class StaticViewSitemap(sitemaps.Sitemap):
         return [
             "home:home",
             "home:about",
-            "home:contact",
             "home:privacy-policy",
         ]
 
