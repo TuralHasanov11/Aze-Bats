@@ -1,4 +1,4 @@
-from activities import views
+from apps.activities import views
 from django.urls import path
 
 app_name = "apps.activities"

@@ -35,10 +35,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    
     "rosetta",
     "log_viewer",
     "csp",
     "axes",
+    'django_cleanup.apps.CleanupConfig',
+    
     "apps.home",
     "apps.species",
     "apps.activities",
@@ -163,6 +166,11 @@ STATICFILES_BASE_DIR.mkdir(exist_ok=True, parents=True)
 STATICFILES_DIRS = [STATICFILES_BASE_DIR]
 STATIC_ROOT = BASE_DIR / "static-cdn"
 
+MEDIA_URL = "media/"
+if not DEBUG:
+    MEDIA_ROOT = "/home/aze_bats/public_html/media/"
+else:
+    MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

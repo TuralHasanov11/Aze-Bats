@@ -1,9 +1,7 @@
-import uuid
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from django.template.defaultfilters import slugify
 
 
 class RichTextField(models.TextField):
@@ -46,14 +44,3 @@ class NameField(models.CharField):
         super().__init__(*args, **kwargs)
 
 
-class ImageField(models.ImageField):
-    def __init__(
-        self, directory: str, description: str = _("Image field"), *args, **kwargs
-    ):
-        def upload_to_func(instance: models.Model, filename: str) -> str:
-            return f"{directory}/{slugify(str(instance))}/{uuid.uuid4()}-{filename}"
-
-        self.upload_to = upload_to_func
-        self.description = description
-
-        super().__init__(*args, **kwargs)

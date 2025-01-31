@@ -14,11 +14,19 @@ sitemaps = {
     "projects": activities_sitemap.ProjectSiteMap,
     "visits": activities_sitemap.SiteVisitSiteMap,
     "articles": articles_sitemap.ArticleSiteMap,
-    'about': home_sitemap.StaticViewSitemap,
+    'home': home_sitemap.StaticViewSitemap,
 }
 
-urlpatterns = [
-    path('django-admin/', admin.site.urls),
+urlpatterns = i18n_patterns(
+    path("", include("apps.home.urls", namespace="apps.home")),
+    path("species/", include("apps.species.urls", namespace="apps.species")),
+    path("activities/", include("apps.activities.urls", namespace="apps.activities")),
+    path("articles/", include("apps.articles.urls", namespace="apps.articles")),
+    prefix_default_language=False,
+)
+
+urlpatterns += [
+    path('admin/', admin.site.urls),
     path("logs/", include("log_viewer.urls")),
     path(
         "sitemap.xml",
@@ -28,11 +36,6 @@ urlpatterns = [
     ),
     re_path(r"^languages/", include("rosetta.urls")),
 ]
-
-urlpatterns += i18n_patterns(
-    path("", include("apps.home.urls", namespace="home")),
-    prefix_default_language=False,
-)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

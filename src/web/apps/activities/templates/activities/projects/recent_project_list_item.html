@@ -1,11 +1,16 @@
 <div class="recent-post-single">
-    <div class="recent-post-img">
-      <img src="{% if project.cover_image %}{{project.cover_image.url}}{% endif %}" alt="{{project.name}} thumb" />
-    </div>
-    <div class="recent-post-bio">
-      <h6>
-        <a href="{{project.get_absolute_url}}">{{project.name}}</a>
-      </h6>
-      <span><i class="far fa-clock"></i>{{project.created_at|date:"d F, Y"}}</span>
-    </div>
+  <div class="recent-post-img">
+    <img
+      src="{% if project.cover_image %}{{project.cover_image.url}}{% endif %}"
+      alt="{{project.name}} thumb"
+    />
   </div>
+  <div class="recent-post-bio">
+    <h6>
+      <a href="{{project.get_absolute_url}}">{{project.name}}</a>
+    </h6>
+    <span
+      ><i class="far fa-clock"></i>{{project.created_at|date:"d F, Y"}}</span
+    >
+  </div>
+</div>

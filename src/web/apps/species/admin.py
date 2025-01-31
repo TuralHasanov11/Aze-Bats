@@ -12,7 +12,7 @@ class BatAttributesInlineAdmin(admin.StackedInline):
 
 @admin.register(models.Bat)
 class BatAdmin(admin.ModelAdmin):
-    list_display = ("name", "is_in_red_book", "genus", "updated_at")
+    list_display = ("name", "is_in_red_list", "genus", "updated_at")
     prepopulated_fields = {"slug": ("name",)}
     inlines = [BatImageInlineAdmin, BatAttributesInlineAdmin]
 

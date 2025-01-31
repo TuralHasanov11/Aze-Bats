@@ -5,12 +5,12 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from apps.shared.models import (
-    ImageField,
     LanguageField,
     NameField,
     RichTextField,
     SlugField,
 )
+import uuid
 
 
 class FamilyManager(models.Manager):
@@ -49,7 +49,7 @@ class GenusManager(models.Manager):
 class Genus(models.Model):
     name = NameField(unique=True)
     slug = SlugField()
-    family = models.ForeignKey(Family, related_name="family", on_delete=models.CASCADE)
+    family = models.ForeignKey(Family, related_name="genuses", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -72,12 +72,15 @@ class BatManager(models.Manager):
         return self.get_queryset().all()
 
 
+def upload_bat_cover_image_to_func(instance: models.Model, filename: str) -> str:
+    return f"bats/{instance.pk}/{uuid.uuid4()}-{filename}"
+
 class Bat(models.Model):
     name = NameField(unique=True)
     slug = SlugField()
-    cover_image = ImageField("bats", _("Cover Image"))
-    genus = models.ForeignKey(Genus, related_name="genus", on_delete=models.CASCADE)
-    is_in_red_book = models.BooleanField(default=False, blank=True)
+    cover_image = models.ImageField(upload_to=upload_bat_cover_image_to_func, verbose_name=_("Cover Image"))
+    genus = models.ForeignKey(Genus, related_name="bats", on_delete=models.CASCADE)
+    is_in_red_list = models.BooleanField(default=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -98,10 +101,12 @@ class BatAttributes(models.Model):
     description = RichTextField()
     language = LanguageField()
 
+def upload_bat_image_to_func(instance: models.Model, filename: str) -> str:
+    return f"bats/{getattr(instance, "bat_id")}/{uuid.uuid4()}-{filename}"
 
 class BatImage(models.Model):
     bat = models.ForeignKey(Bat, on_delete=models.CASCADE, related_name="images")
-    image = ImageField("bats", _("Image"))
+    image = models.ImageField(upload_to=upload_bat_image_to_func, verbose_name=_("Cover Image"))
 
     def __str__(self):
         return self.image.url

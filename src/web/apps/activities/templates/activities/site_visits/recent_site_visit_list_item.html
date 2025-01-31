@@ -1,11 +1,16 @@
 <div class="recent-post-single">
-    <div class="recent-post-img">
-      <img src="{% if site_visit.cover_image %}{{site_visit.cover_image.url}}{% endif %}" alt="{{site_visit.name}} thumb" />
-    </div>
-    <div class="recent-post-bio">
-      <h6>
-        <a href="{{site_visit.get_absolute_url}}">{{site_visit.name}}</a>
-      </h6>
-      <span><i class="far fa-clock"></i>{{site_visit.created_at|date:"d F, Y"}}</span>
-    </div>
+  <div class="recent-post-img">
+    <img
+      src="{% if site_visit.cover_image %}{{site_visit.cover_image.url}}{% endif %}"
+      alt="{{site_visit.name}} thumb"
+    />
   </div>
+  <div class="recent-post-bio">
+    <h6>
+      <a href="{{site_visit.get_absolute_url}}">{{site_visit.name}}</a>
+    </h6>
+    <span
+      ><i class="far fa-clock"></i>{{site_visit.created_at|date:"d F, Y"}}</span
+    >
+  </div>
+</div>
