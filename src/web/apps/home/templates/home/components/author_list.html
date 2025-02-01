@@ -11,24 +11,12 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      {% for author in authors %}
-      <div class="col-md-6 col-lg-3">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
         <div class="team-item">
-          <img src="assets/img/authority/01.jpg" alt="thumb" />
+          <img src="{{author.profile_image}}" alt="{{author.name}} {% translate 'profile image' %}" />
           <div class="team-social">
-            <a href="{{author.social_links.facebook}}"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="{{author.social_links.twitter}}"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="{{author.social_links.linkedin}}"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-            <a href="{{author.social_links.youtube}}"
-              ><i class="fab fa-youtube"></i
-            ></a>
+            {% include "shared/social_links.html" with social_links=author.social_links %}
           </div>
           <div class="team-content">
             <div class="team-bio">
@@ -38,7 +26,6 @@
           </div>
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>

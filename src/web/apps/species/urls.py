@@ -1,7 +1,7 @@
 from apps.species import views
 from django.urls import path
 
-app_name = "apps.bats"
+app_name = "apps.species"
 
 urlpatterns = [
     path("", views.BatListView.as_view(), name="list"),

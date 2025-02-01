@@ -2,14 +2,9 @@
 
 <div class="search-popup">
   <button class="close-search"><span class="far fa-times"></span></button>
-  <form action="">
+  <form action="{% url 'apps.home:search' %}">
     <div class="form-group">
-      <input
-        type="search"
-        name="search-field"
-        placeholder="{% translate 'Search Here...' %}"
-        required
-      />
+      {{search_form.search}}
       <button type="submit"><i class="far fa-search"></i></button>
     </div>
   </form>

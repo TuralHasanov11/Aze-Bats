@@ -1,0 +1,22 @@
+{% load i18n %} 
+
+<div class="animal-item">
+  <div class="animal-img">
+    <img src="{% if bat.cover_image %}{{bat.cover_image.url}}{% endif %}"
+    alt="{{bat.name}} {% translate "cover image" %}" />
+  </div>
+  <a href="{{bat.get_absolute_url}}"
+    ><h4 class="animal-title">{{bat.name}}</h4></a
+  >
+  <p>
+    <a
+      href="{% url 'apps.species:list' %}?genus={{bat.genus.slug}}&family={{bat.genus.family.slug}}"
+      >{{bat.genus.name}}</a
+    >
+  </p>
+  <p>
+    <a href="{% url 'apps.species:list' %}?family={{bat.genus.family.slug}}"
+      >{{bat.genus.family.name}}</a
+    >
+  </p>
+</div>

@@ -1,0 +1,31 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block title %}{% translate "Bats" %}{% endblock title %} 
+
+{% block content %}
+{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title='Bats' %}
+{% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %} 
+{% endwith %}
+
+<div class="animal-area2 py-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="site-heading text-center">
+          <h2 class="site-title">{% translate "Bats" %}</h2>
+          <p>It is a long established fact that a reader will be distracted</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for bat in bats %}
+      <div class="col-md-3">
+        {% include "species/components/bat_list_item.html" with bat=bat %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

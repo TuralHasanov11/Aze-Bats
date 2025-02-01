@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional
+from typing import Collection, Optional
 from django.urls import reverse
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -12,13 +12,18 @@ from apps.shared.models import (
 )
 import uuid
 
+from apps.shared.specification import Specification
+
 
 class FamilyManager(models.Manager):
-    def get_by_slug(self, slug: str, language: str) -> Optional[Family]:
+    def get_by_slug(self, slug: str) -> Optional[Family]:
         return self.get_queryset().filter(slug=slug).first()
 
-    def list(self, language: str) -> models.QuerySet[Family]:
+    def list(self) -> models.QuerySet[Family]:
         return self.get_queryset().all()
+    
+    def list_with_genuses(self) -> models.QuerySet[Family]:
+        return self.get_queryset().prefetch_related("genuses")
 
 
 class Family(models.Model):
@@ -36,6 +41,12 @@ class Family(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property 
+    def genus_list(self) -> Collection[Genus]:
+        if not hasattr(self, "genuses"):
+            return []
+        return getattr(self, "genuses").all()
 
 
 class GenusManager(models.Manager):
@@ -62,15 +73,24 @@ class Genus(models.Model):
 
     def __str__(self):
         return self.name
-
+    
+    @property
+    def bat_list(self) -> Collection[Bat]:
+        if not hasattr(self, "bats"):
+            return []
+        return getattr(self, "bats").all()
+    
 
 class BatManager(models.Manager):
-    def get_by_slug(self, slug: str, language: str) -> Optional[Bat]:
-        return self.get_queryset().filter(slug=slug).first()
-
-    def list(self, language: Optional[str] = "") -> models.QuerySet[Bat]:
+    def list(self, specification: Optional[Specification[Bat]] = None) -> models.QuerySet[Bat]:
+        if specification:
+            return specification.handle(self.get_queryset())
         return self.get_queryset().all()
-
+    
+    def single(self, specification: Optional[Specification[Bat]] = None) -> Optional[Bat]:
+        if specification:
+            return specification.handle(self.get_queryset()).first()
+        return self.get_queryset().first()
 
 def upload_bat_cover_image_to_func(instance: models.Model, filename: str) -> str:
     return f"bats/{instance.pk}/{uuid.uuid4()}-{filename}"
@@ -93,10 +113,16 @@ class Bat(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("species:detail", kwargs={"slug": self.slug})
+        return reverse("apps.species:detail", kwargs={"slug": self.slug})
+    
+    @property
+    def attribute(self) -> Optional[BatAttribute]:
+        if not hasattr(self, "attributes"):
+            return None
+        return getattr(self, "attributes").first()
 
 
-class BatAttributes(models.Model):
+class BatAttribute(models.Model):
     bat = models.ForeignKey(Bat, related_name="attributes", on_delete=models.CASCADE)
     description = RichTextField()
     language = LanguageField()

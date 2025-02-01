@@ -13,16 +13,19 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+from apps.shared.specification import Specification
+
 
 class ProjectManager(models.Manager):
-    def get_queryset(self) -> models.QuerySet:
-        return super().get_queryset()
-
-    def get_by_slug(self, slug: str) -> Optional[Project]:
-        return self.get_queryset().filter(slug=slug).first()
-
-    def list(self, language: Optional[str] = "") -> models.QuerySet[Project]:
+    def list(self, specification: Optional[Specification[Project]] = None) -> models.QuerySet[Project]:
+        if specification:
+            return specification.handle(self.get_queryset())
         return self.get_queryset().all()
+    
+    def single(self, specification: Optional[Specification[Project]] = None) -> Optional[Project]:
+        if specification:
+            return specification.handle(self.get_queryset()).first()
+        return self.get_queryset().first()
 
 
 def upload_project_cover_image_to_func(instance: models.Model, filename: str) -> str:
@@ -45,6 +48,7 @@ class Project(models.Model):
     class Meta:
         verbose_name = _("Project")
         verbose_name_plural = _("Projects")
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.name
@@ -54,14 +58,15 @@ class Project(models.Model):
 
 
 class SiteVisitManager(models.Manager):
-    def get_queryset(self) -> models.QuerySet:
-        return super().get_queryset()
-
-    def get_by_slug(self, slug: str) -> Optional[SiteVisit]:
-        return self.get_queryset().filter(slug=slug).first()
-
-    def list(self, language: Optional[str] = "") -> models.QuerySet[SiteVisit]:
+    def list(self, specification: Optional[Specification[SiteVisit]] = None) -> models.QuerySet[SiteVisit]:
+        if specification:
+            return specification.handle(self.get_queryset())
         return self.get_queryset().all()
+    
+    def single(self, specification: Optional[Specification[SiteVisit]] = None) -> Optional[SiteVisit]:
+        if specification:
+            return specification.handle(self.get_queryset()).first()
+        return self.get_queryset().first()
 
 
 def upload_site_visit_cover_image_to_func(instance: models.Model, filename: str) -> str:
@@ -84,6 +89,7 @@ class SiteVisit(models.Model):
     class Meta:
         verbose_name = _("Site Visit")
         verbose_name_plural = _("Site Visits")
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.name

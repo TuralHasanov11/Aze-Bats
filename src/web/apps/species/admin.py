@@ -6,15 +6,15 @@ class BatImageInlineAdmin(admin.StackedInline):
     model = models.BatImage
 
 
-class BatAttributesInlineAdmin(admin.StackedInline):
-    model = models.BatAttributes
+class BatAttributeInlineAdmin(admin.StackedInline):
+    model = models.BatAttribute
 
 
 @admin.register(models.Bat)
 class BatAdmin(admin.ModelAdmin):
     list_display = ("name", "is_in_red_list", "genus", "updated_at")
     prepopulated_fields = {"slug": ("name",)}
-    inlines = [BatImageInlineAdmin, BatAttributesInlineAdmin]
+    inlines = [BatImageInlineAdmin, BatAttributeInlineAdmin]
 
 
 @admin.register(models.Genus)

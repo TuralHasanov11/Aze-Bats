@@ -1,29 +1,20 @@
+from __future__ import annotations
 from abc import ABC
-from dataclasses import dataclass, asdict
-from typing import Any
+from typing import Optional, TypeVar, Generic
 from django.db.models.query import QuerySet
-from django.db.models import Model
-from typing import TypeVar, Dict
+from django.db.models import Model  
+
 
 TModel = TypeVar('TModel', bound=Model)
 
-class Specification[TModel](ABC):
-    criteria: Dict[str, Any]
-    criteria_condition: bool
+class Specification(ABC, Generic[TModel]):
+    next: Optional[Specification[TModel]] = None
 
-    def __init__(self, criteria: Dict, criteria_condition: bool = True):
-        self.criteria = criteria
-        self.criteria_condition = criteria_condition
+    def set_next(self, filter: Specification[TModel]):
+        self.next = filter
+        return filter
 
-
-class SpecificationEvaluator:
-    
-    @staticmethod
-    def filter(
-        queryable: QuerySet[TModel], specification: Specification
-    ) -> QuerySet[TModel]:
-        return (
-            queryable.filter(**specification.criteria)
-            if specification.criteria_condition
-            else queryable
-        )
+    def handle(self, queryset: QuerySet[TModel]) -> QuerySet[TModel]:
+        if self.next:
+            return self.next.handle(queryset)
+        return queryset

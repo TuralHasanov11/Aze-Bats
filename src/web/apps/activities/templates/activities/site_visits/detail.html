@@ -5,7 +5,7 @@
 {% block content %}
 
 
-{% with breadcrumb_image=static 'base/img/breadcrumb/01.jpg' breadcrumb_title=site_visit.name %}
+{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title=site_visit.name %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
 
@@ -20,17 +20,14 @@
             {{site_visit.description}}
           </div>
         </div>
+        {% include "activities/author.html" with author=author %}
       </div>
       <div class="col-lg-4">
         <aside class="sidebar">
           <div class="widget search">
             <h5 class="widget-title">Search</h5>
-            <form class="search-form">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search Here..."
-              />
+            <form action="{% url 'apps.home:search' %}" class="search-form">
+              {{search_form.search}}
               <button type="submit"><i class="far fa-search"></i></button>
             </form>
           </div>
@@ -46,7 +43,7 @@
           <div class="widget social-share">
             <h5 class="widget-title">{% translate "Follow Us" %}</h5>
             <div class="social-share-link">
-              {% include "activities/author.html" with social_links=author.social_links %}
+              {% include "shared/social_links.html" with social_links=author.social_links %}
             </div>
           </div>
 

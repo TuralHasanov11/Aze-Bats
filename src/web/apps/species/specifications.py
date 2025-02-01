@@ -1,20 +1,33 @@
-from typing import Dict, Optional, Any
-from apps.species.models import Bat
+from typing import Optional
+from apps.species.models import Bat, BatAttribute
 from apps.shared.specification import Specification
+from django.db.models import QuerySet, Prefetch
 
 
-class GetBatSpecification(Specification[Bat]):
+class GetBatBySlugSpecification(Specification[Bat]):
+    slug: str
+    language: str
+
     def __init__(self, slug: str, language: str):
-        super().__init__({"slug": slug, "language": language})
+        self.slug = slug
+        self.language = language
+
+    def handle(self, queryset: QuerySet[Bat]) -> QuerySet[Bat]:
+        return queryset.prefetch_related(
+            "images",
+            Prefetch(
+                "attributes", queryset=BatAttribute.objects.filter(language=self.language)
+            ),
+        ).filter(slug=self.slug)
 
 
-class GetBatsSpecification(Specification[Bat]):
-    def __init__(self, language: str, genus_id: Optional[int] = None):
-        criteria: Dict[str, Any] = {
-            "language": language,
-        }
+class SearchBatsSpecification(Specification[Bat]):
+    search: Optional[str]
 
-        if genus_id:
-            criteria["genus_id"] = genus_id
+    def __init__(self, search: Optional[str]):
+        self.search = search
 
-        super().__init__(criteria)
+    def handle(self, queryset: QuerySet[Bat]) -> QuerySet[Bat]:
+        if self.search:
+            queryset = queryset.filter(name__icontains=self.search)
+        return super().handle(queryset)

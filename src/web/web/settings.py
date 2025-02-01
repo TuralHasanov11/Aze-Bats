@@ -78,6 +78,12 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 # "csp.context_processors.nonce",
+                "apps.home.context_processors.home_context",
+                "apps.home.context_processors.base_menu",
+                "apps.home.context_processors.search_form",
+                "apps.species.context_processors.families",
+                "apps.species.context_processors.genus_count",
+                "apps.species.context_processors.bat_count",
             ],
         },
     },
@@ -139,8 +145,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_URL = "administration:login"
 LOGIN_REDIRECT_URL = "administration:dashboard"
 
-
-LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "Asia/Baku"
 
@@ -327,3 +331,6 @@ AXES_LOCKOUT_PARAMETERS = [["username", "user_agent"]]
 
 
 X_FRAME_OPTIONS = "ALLOW-FROM https://www.youtube.com/"
+
+
+APP_NAME = os.environ.get("APP_NAME", "Bats of Azerbaijan")

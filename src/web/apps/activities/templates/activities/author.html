@@ -1,10 +1,10 @@
-{% load static %}
+{% load i18n %} 
 
 <div class="blog-author">
   <div class="blog-author-img">
     <img
-      src="{% static 'base/img/blog/author.jpg' %}"
-      alt="{{author.name}} image"
+      src="{{author.profile_image}}"
+      alt="{{author.name}} {% translate 'profile image' %}"
     />
   </div>
   <div class="author-info">
@@ -12,7 +12,7 @@
     <h3 class="author-name">{{author.name}}</h3>
     <p>{{author.bio}}</p>
     <div class="author-social">
-      {% include with social_links=author.social_links %}
+      {% include "shared/social_links.html" with social_links=author.social_links %}
     </div>
   </div>
 </div>

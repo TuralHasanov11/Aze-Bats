@@ -1,0 +1,99 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block title %}{% translate "Search" %}{% endblock title %} 
+
+{% block content %}
+{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title='Search' %} 
+{% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %} 
+{% endwith %}
+
+{% if bats %}
+<div class="animal-area2 py-120">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <div class="site-heading text-center">
+            <h2 class="site-title">{% translate "Bats" %}</h2>
+            <p>It is a long established fact that a reader will be distracted</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for bat in bats %}
+        <div class="col-md-3">
+          {% include "species/components/bat_list_item.html" with bat=bat %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endif %}
+
+{% if projects %}
+<div class="blog-area py-120">
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="site-heading text-center">
+            <span class="site-title-tagline">{% translate "Our Projects" %}</span>
+            <h2 class="site-title">{% translate "Latest Projects" %}</h2>
+            <p>It is a long established fact that a reader will be distracted</p>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        {% for project in projects %}
+        <div class="col-md-6 col-lg-4">
+            {% include "activities/projects/project_list_item.html" with project=project %}
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if site_visits %}
+<div class="event-area bg py-120">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <div class="site-heading text-center">
+            <span class="site-title-tagline">{% translate "Site Visits" %}</span>
+            <h2 class="site-title">{% translate "Our Recent Site Visits" %}</h2>
+            <p>It is a long established fact that a reader will be distracted</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for site_visit in site_visits %}
+        <div class="col-md-6">
+          {% include "activities/site_visits/site_visit_list_item.html" with site_visit=site_visit %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>  
+{% endif %}
+
+{% if not projects and not site_visits and not bats %}
+<div class="error-area py-120">
+  <div class="container">
+    <div class="col-md-6 mx-auto">
+      <div class="error-wrapper">
+        <h2>{% translate "No Entry Found" %}!</h2>
+        <p>
+          {% blocktranslate %} 
+          We are sorry, but we could not find any entry matching your search criteria. Please try again with some different keywords.
+          {% endblocktranslate %}
+        </p>
+        <a href="{% url 'apps.home:home' %}" class="theme-btn"
+          >{% translate "Go Back Home" %} <i class="far fa-home"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block title %}{{bat.name}}{% endblock title %} 
+{% block content %} 
+{% with breadcrumb_image=bat.cover_image.url breadcrumb_title=bat.name %} 
+{% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %} 
+{% endwith %}
+
+<div class="animal-single-area py-120">
+  <div class="container">
+    <div class="animal-single-wrapper">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4">
+          <div class="animal-sidebar">
+            <div class="widget category">
+              <h4 class="widget-title">{% translate "Our Bats" %}</h4>
+              <div class="category-list">
+                {% for family in families %}
+                <a href="{% url 'apps.species:list' %}?family={{family.slug}}"
+                  ><i class="far fa-angle-double-right"></i>{{family.name}}</a
+                >
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 col-lg-8">
+          <div class="animal-details">
+            <div class="animal-details-img mb-30">
+              <img
+                src="{% if bat.cover_image %}{{bat.cover_image.url}}{% endif %}"
+                alt="{{bat.name}} thumb"
+              />
+            </div>
+            <div class="animal-details">
+              <div>
+                <h3 class="mb-3">{{bat.name}}</h3>
+                <div class="mb-20">{{bat.attribute.description}}</div>
+              </div>
+
+              <div class="row mt-20">
+                {% for bat_image in bat.images.all %}
+                <div class="col-md-6 mb-20">
+                  <img
+                    src="{% if bat_image %}{{bat_image}}{% endif %}"
+                    alt="{{bat.name}} image"
+                  />
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

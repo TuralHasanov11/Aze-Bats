@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% with breadcrumb_image=static 'base/img/breadcrumb/01.jpg' breadcrumb_title=translate 'Not Found' %}
+{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title='Not Found' %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
 
@@ -20,7 +20,7 @@
           The page you looking for not found may be it not exist or removed. 
           {% endblocktranslate %}
         </p>
-        <a href="{% url 'home:home' %}" class="theme-btn"
+        <a href="{% url 'apps.home:home' %}" class="theme-btn"
           >{% translate "Go Back Home" %} <i class="far fa-home"></i
         ></a>
       </div>
