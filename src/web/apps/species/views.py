@@ -23,8 +23,13 @@ class BatListView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         page = int(request.GET.get("page", 1))
         bats = Paginator(Bat.entries.list(), self.paginate_by).get_page(page)
+        
+        breadcrumb_menu: BreadcrumbMenu = [
+            {"name": _("Home"), "url": reverse("apps.home:home")},
+            {"name": _("Bats"), "url": reverse("apps.species:list")},
+        ]
 
-        return render(request, "species/list.html", {"bats": bats})
+        return render(request, "species/list.html", {"bats": bats, "breadcrumb_menu": breadcrumb_menu})
 
 
 class BatDetailView(View):
@@ -37,9 +42,10 @@ class BatDetailView(View):
             logger.error("Bat with slug %s not found", slug)
             return HttpResponseNotFound()
         
-        breadcrumb: BreadcrumbMenu = [
+        breadcrumb_menu: BreadcrumbMenu = [
+            {"name": _("Home"), "url": reverse("apps.home:home")},
             {"name": _("Bats"), "url": reverse("apps.species:list")},
             {"name": bat.name, "url": bat.get_absolute_url()},
         ]
 
-        return render(request, "species/detail.html", {"bat": bat, "breadcrumb": breadcrumb})
+        return render(request, "species/detail.html", {"bat": bat, "breadcrumb_menu": breadcrumb_menu})

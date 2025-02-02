@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% include "home/components/hero.html" %}
+{% include "home/components/hero.html" with carousel_items=carousel_items %}
 {% include "home/components/family_list.html" with families=families %}
 {% include "home/components/species_counter.html" with family_count=family_count genus_count=genus_count bat_count=bat_count %}
 {% include "home/components/author_list.html" with author=author %}

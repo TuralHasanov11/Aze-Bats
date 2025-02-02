@@ -4,8 +4,9 @@
 {% block title %}{% translate "Projects" %}{% endblock title %}
 {% block content %}
 
+{% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
 
-{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title='Projects' %}
+{% with breadcrumb_title='Projects' %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
 

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "csp",
     "axes",
     'django_cleanup.apps.CleanupConfig',
+    'tinymce',
     
     "apps.home",
     "apps.species",
@@ -77,7 +78,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                # "csp.context_processors.nonce",
+                "csp.context_processors.nonce",
                 "apps.home.context_processors.home_context",
                 "apps.home.context_processors.base_menu",
                 "apps.home.context_processors.search_form",
@@ -199,48 +200,13 @@ MAINTENANCE_MODE = config("MAINTENANCE_MODE", cast=bool, default=False)
 MAINTENANCE_BYPASS_QUERY = config("MAINTENANCE_BYPASS_QUERY", default="bypass")
 
 
-CSP_NONE = "'none'"
-CSP_SELF = "'self'"
-CSP_STRICT_DYNAMIC = "'strict-dynamic'"
-CSP_NONCE = "'nonce'"
-CONTENT_SECURITY_POLICY = {
-    "DIRECTIVES": {
-        "default-src": [CSP_NONE],
-        "frame-ancestors": [CSP_SELF],
-        "form-action": [CSP_SELF],
-        "script-src": [
-            CSP_SELF,
-            CSP_STRICT_DYNAMIC,
-            "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
-        ],
-        "style-src": [
-            CSP_SELF,
-            "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
-        ],
-        "report-uri": "/csp-report/",
-        "img-src": [CSP_SELF, "data:"],
-    },
-}
-CONTENT_SECURITY_POLICY_REPORT_ONLY = {
-    "DIRECTIVES": {
-        "default-src": [CSP_NONE],
-        "connect-src": [CSP_SELF],
-        "img-src": [CSP_SELF],
-        "form-action": [CSP_SELF],
-        "frame-ancestors": [CSP_SELF],
-        "script-src": [
-            CSP_SELF,
-            CSP_STRICT_DYNAMIC,
-            "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
-        ],
-        "style-src": [
-            CSP_SELF,
-            "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
-        ],
-        "upgrade-insecure-requests": True,
-        "report-uri": "/csp-report/",
-    },
-}
+CSP_DEFAULT_SRC = ("'self'", )
+CSP_CONNECT_SRC = ("'self'", )
+CSP_STYLE_SRC = ("'self'", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net", "fonts.googleapis.com")
+CSP_SCRIPT_SRC = ("'self'", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net", "'unsafe-inline'")
+CSP_IMG_SRC = ("'self'", )
+CSP_FONT_SRC = ("'self'", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net", "https://fonts.gstatic.com")
+CSP_INCLUDE_NONCE_IN = ['script-src', "style-src"]
 
 MESSAGE_TAGS = {
     messages.constants.DEBUG: "alert-secondary",
@@ -334,3 +300,8 @@ X_FRAME_OPTIONS = "ALLOW-FROM https://www.youtube.com/"
 
 
 APP_NAME = os.environ.get("APP_NAME", "Bats of Azerbaijan")
+
+
+TINYMCE_JS_URL = STATIC_URL + 'tinymce/tinymce.min.js'
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True

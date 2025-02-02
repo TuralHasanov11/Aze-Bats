@@ -7,12 +7,12 @@ from django.utils.translation import gettext_lazy as _
 from apps.shared.models import (
     LanguageField,
     NameField,
-    RichTextField,
     SlugField,
 )
 import uuid
 
 from apps.shared.specification import Specification
+from tinymce import models as tinymce_models
 
 
 class FamilyManager(models.Manager):
@@ -124,7 +124,7 @@ class Bat(models.Model):
 
 class BatAttribute(models.Model):
     bat = models.ForeignKey(Bat, related_name="attributes", on_delete=models.CASCADE)
-    description = RichTextField()
+    description = tinymce_models.HTMLField()
     language = LanguageField()
 
 def upload_bat_image_to_func(instance: models.Model, filename: str) -> str:

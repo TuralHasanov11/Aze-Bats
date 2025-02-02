@@ -5,7 +5,7 @@
   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
   crossorigin="anonymous"
 />
-<link rel="stylesheet" href="{% static 'base/css/all-fontawesome.min.css' %}">
+<link nonce="{{request.csp_nonce}}" rel="stylesheet" href="{% static 'base/css/all-fontawesome.min.css' %}">
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -14,7 +14,7 @@
   referrerpolicy="no-referrer"
 />
 
-<link rel="stylesheet" href="{% static 'base/css/magnific-popup.min.css' %}" />
+<link nonce="{{request.csp_nonce}}" rel="stylesheet" href="{% static 'base/css/magnific-popup.min.css' %}" />
 
 <link
   rel="stylesheet"
@@ -24,4 +24,4 @@
   referrerpolicy="no-referrer"
 />
 
-<link rel="stylesheet" href="{% static 'base/css/style.css' %}" />
+<link nonce="{{request.csp_nonce}}" rel="stylesheet" href="{% static 'base/css/style.css' %}" />

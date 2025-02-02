@@ -1,0 +1,36 @@
+{
+    "en":{
+        "name": "Nijat Hasanov",
+        "specialty": "Researcher, Engineer",
+        "bio": "I am a software engineer with a passion for web development. I have been working in the industry for over 5 years and have experience in a variety of technologies. I am always looking to learn new things and improve my skills."
+    },
+    "az":{
+        "name": "Nicat Həsənov",
+        "specialty": "Araşdırmaçı, Mühəndis",
+        "bio": "Mən veb inkişafına olan sevgisi olan bir proqramçıyam. Sənayədə 5 ildən artıq işləyirəm və müxtəlif texnologiyalarda təcrübəyə malikəm. Həmişə yeni şeylər öyrənməyə və bacarıqlarımı inkişaf etdirməyə çalışıram."
+    },
+    "social_links": [
+        {
+            "name": "YouTube",
+            "url": "https://youtube.com",
+            "icon": "fab fa-youtube"
+        },
+        {
+            "name": "Twitter",
+            "url": "https://twitter.com",
+            "icon": "fab fa-twitter"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://linkedin.com",
+            "icon": "fab fa-linkedin-in"
+        },
+        {
+            "name": "Facebook",
+            "url": "https://facebook.com",
+            "icon": "fab fa-facebook-f"
+        }
+    ],
+    "email": "test@test.com",
+    "profile_image": "base/img/authority/01.jpg"
+}

@@ -4,7 +4,10 @@
 {% block title %}{% translate "Bats" %}{% endblock title %} 
 
 {% block content %}
-{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title='Bats' %}
+
+{% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
+
+{% with breadcrumb_title='Bats' %}
 {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %} 
 {% endwith %}
 

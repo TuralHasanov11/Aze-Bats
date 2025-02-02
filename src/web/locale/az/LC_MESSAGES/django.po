@@ -1,0 +1,270 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-02 13:36+0100\n"
+"PO-Revision-Date: 2025-02-02 13:47+0400\n"
+"Last-Translator:   <superuser@test.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: .\apps\activities\models.py:39 .\apps\activities\models.py:80
+#: .\apps\species\models.py:101 .\apps\species\models.py:135
+msgid "Cover Image"
+msgstr "Başlıq Şəkli"
+
+#: .\apps\activities\models.py:49
+msgid "Project"
+msgstr "Proyekt"
+
+#: .\apps\activities\models.py:50
+#: .\apps\activities\templates\activities\projects\list.html:4
+#: .\apps\home\context_processors.py:124
+msgid "Projects"
+msgstr "Proyektlər"
+
+#: .\apps\activities\models.py:90
+msgid "Site Visit"
+msgstr "Sahə Səyahəti"
+
+#: .\apps\activities\models.py:91
+#: .\apps\activities\templates\activities\site_visits\list.html:4
+#: .\apps\activities\templates\activities\site_visits\site_visit_list.html:9
+#: .\apps\home\context_processors.py:120
+#: .\apps\home\templates\home\search.html:63
+msgid "Site Visits"
+msgstr "Sahə Səyahətləri"
+
+#: .\apps\activities\templates\activities\author.html:7
+#: .\apps\home\templates\home\components\author_list.html:17
+msgid "profile image"
+msgstr "profil şəkli"
+
+#: .\apps\activities\templates\activities\author.html:11
+msgid "Author"
+msgstr "Müəllif"
+
+#: .\apps\activities\templates\activities\projects\detail.html:47
+msgid "Recent Projects"
+msgstr "Ən Yeni Proyektlər"
+
+#: .\apps\activities\templates\activities\projects\detail.html:54
+#: .\apps\activities\templates\activities\site_visits\detail.html:44
+msgid "Follow Us"
+msgstr "Bizi İzləyin"
+
+#: .\apps\activities\templates\activities\projects\project_list.html:9
+#: .\apps\home\templates\home\search.html:41
+msgid "Our Projects"
+msgstr "Proyektlərimiz"
+
+#: .\apps\activities\templates\activities\projects\project_list.html:10
+#: .\apps\home\templates\home\search.html:42
+msgid "Latest Projects"
+msgstr "Ən Son Proyektlər"
+
+#: .\apps\activities\templates\activities\projects\project_list_item.html:30
+#: .\apps\home\templates\home\components\article_list.html:25
+msgid "Read More"
+msgstr "Ətraflı Oxu"
+
+#: .\apps\activities\templates\activities\site_visits\detail.html:36
+msgid "Recent Site Visits"
+msgstr "Ən Yeni Sahə Səyahətləri"
+
+#: .\apps\activities\templates\activities\site_visits\site_visit_list.html:10
+#: .\apps\home\templates\home\search.html:64
+msgid "Our Recent Site Visits"
+msgstr "Ən Yeni Sahə Səyahətlərimiz"
+
+#: .\apps\articles\templates\articles\list.html:4
+#: .\apps\articles\templates\articles\list.html:7
+#: .\apps\home\templates\home\components\article_list.html:9
+msgid "Articles"
+msgstr "Məqalələr"
+
+#: .\apps\home\context_processors.py:76 .\apps\home\context_processors.py:89
+msgid "All"
+msgstr "Bütün"
+
+#: .\apps\home\context_processors.py:113
+#: .\apps\home\templates\home\home.html:4 .\apps\home\views.py:41
+#: .\apps\home\views.py:51 .\apps\species\views.py:28
+#: .\apps\species\views.py:46
+msgid "Home"
+msgstr "Ana Səhifə"
+
+#: .\apps\home\context_processors.py:114
+#: .\apps\home\templates\home\about.html:5
+#: .\apps\home\templates\home\about.html:32 .\apps\home\views.py:42
+#: .\apps\shared\templates\shared\base_footer.html:38
+msgid "About Us"
+msgstr "Haqqımızda"
+
+#: .\apps\home\context_processors.py:116
+msgid "Activities"
+msgstr "Fəaliyyətlər"
+
+#: .\apps\home\context_processors.py:129
+#: .\apps\home\templates\home\components\family_list.html:9
+#: .\apps\home\templates\home\search.html:20
+#: .\apps\species\templates\species\list.html:4
+#: .\apps\species\templates\species\list.html:19 .\apps\species\views.py:29
+#: .\apps\species\views.py:47
+msgid "Bats"
+msgstr "Yarasalar"
+
+#: .\apps\home\templates\home\about.html:41
+msgid "Discover More"
+msgstr "Daha Çox Kəşf Et"
+
+#: .\apps\home\templates\home\components\article_list.html:10
+msgid "Our Recent Articles"
+msgstr "Ən Yeni Məqalələrimiz"
+
+#: .\apps\home\templates\home\components\author_list.html:8
+msgid "Authority"
+msgstr "Müəlliflər"
+
+#: .\apps\home\templates\home\components\author_list.html:9
+msgid "Meet Our Authority"
+msgstr "Müəlliflərimizlə Tanış Olun"
+
+#: .\apps\home\templates\home\components\hero.html:42
+msgid "Learn More"
+msgstr "Ətraflı Öyrən"
+
+#: .\apps\home\templates\home\components\species_counter.html:10
+msgid "Family icon"
+msgstr ""
+
+#: .\apps\home\templates\home\components\species_counter.html:20
+msgid "Total Families"
+msgstr "Toplam Ailələr"
+
+#: .\apps\home\templates\home\components\species_counter.html:28
+msgid "Genus icon"
+msgstr ""
+
+#: .\apps\home\templates\home\components\species_counter.html:38
+msgid "Total Genuses"
+msgstr "Toplam Genlər"
+
+#: .\apps\home\templates\home\components\species_counter.html:46
+msgid "Bat icon"
+msgstr ""
+
+#: .\apps\home\templates\home\components\species_counter.html:56
+msgid "Total Bats"
+msgstr "Toplam Yarasalar"
+
+#: .\apps\home\templates\home\home.html:5
+msgid "Home Meta Description"
+msgstr ""
+
+#: .\apps\home\templates\home\not_found.html:5
+msgid "Not Found"
+msgstr "Mövcud Deyil"
+
+#: .\apps\home\templates\home\not_found.html:19
+msgid "Page Not Found"
+msgstr "Səhifə Mövcud Deyil"
+
+#: .\apps\home\templates\home\not_found.html:24
+#: .\apps\home\templates\home\search.html:89
+msgid "Go Back Home"
+msgstr "Ana Səhifəyə Get"
+
+#: .\apps\home\templates\home\privacy_policy.html:5
+#: .\apps\home\templates\home\privacy_policy.html:20 .\apps\home\views.py:52
+msgid "Privacy Policy"
+msgstr "Məxfilik Siyasəti"
+
+#: .\apps\home\templates\home\search.html:4
+msgid "Search"
+msgstr "Axtar"
+
+#: .\apps\home\templates\home\search.html:84
+msgid "No Entry Found"
+msgstr "Məlumat Mövcud Deyil"
+
+#: .\apps\shared\models.py:6
+msgid "Language field"
+msgstr "Dil sahəsi"
+
+#: .\apps\shared\models.py:16
+msgid "Slug field"
+msgstr "Kod sahəsi"
+
+#: .\apps\shared\models.py:27
+msgid "Name field"
+msgstr "Ad sahəsi"
+
+#: .\apps\shared\templates\shared\base_footer.html:14
+msgid ""
+"\n"
+"                We are many variations of passages available but the majority\n"
+"                have suffered alteration in some form by injected humour words\n"
+"                believable.\n"
+"                "
+msgstr ""
+
+#: .\apps\shared\templates\shared\base_footer.html:35
+msgid "Quick Links"
+msgstr "Sürətli Linklər"
+
+#: .\apps\shared\templates\shared\base_footer.html:41
+msgid "Privacy policy"
+msgstr "Məxfilik siyasəti"
+
+#: .\apps\shared\templates\shared\base_footer.html:48
+#: .\apps\species\templates\species\detail.html:17
+msgid "Our Bats"
+msgstr "Yarasalar"
+
+#: .\apps\shared\templates\shared\base_footer.html:68
+msgid "Copyright"
+msgstr "Müəllif hüquqları"
+
+#: .\apps\shared\templates\shared\base_footer.html:69
+msgid "All Rights Reserved"
+msgstr "Bütün Hüquqlar Qorunur"
+
+#: .\apps\species\models.py:38
+msgid "Families"
+msgstr "Ailələr"
+
+#: .\apps\species\models.py:39
+msgid "Family"
+msgstr "Ailə"
+
+#: .\apps\species\models.py:70 .\apps\species\models.py:71
+msgid "Genus"
+msgstr "Gen"
+
+#: .\apps\species\templates\species\components\bat_gallery.html:10
+msgid "image"
+msgstr "şəkil"
+
+#: .\apps\species\templates\species\components\bat_list_item.html:6
+msgid "cover image"
+msgstr "başlıq şəkli"
+
+#: .\web\settings.py:161
+msgid "Azerbaijani"
+msgstr "Azərbaycanca"
+
+#: .\web\settings.py:162
+msgid "English"
+msgstr "İngiliscə"

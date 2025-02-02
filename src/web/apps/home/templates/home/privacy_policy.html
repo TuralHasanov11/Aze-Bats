@@ -1,11 +1,14 @@
 {% extends 'shared/base_layout.html' %} 
 {% load static %} 
 {% load i18n %} 
+{% load static_texts %}
 {% block title %}{% translate "Privacy Policy" %}{% endblock title %} 
 
 {% block content %}
 
-{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title='Privacy Policy' %}
+{% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
+
+{% with breadcrumb_title='Privacy Policy' %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
 
@@ -15,7 +18,7 @@
       <div class="col">
         <div class="terms-content">
           <h3>{% translate "Privacy Policy" %}</h3>
-          <p>{{ privacy_policy }}</p>
+          <p>{% get_static_text 'privacy_policy' CURRENT_LANGUAGE %}</p>
         </div>
       </div>
     </div>

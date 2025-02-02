@@ -28,6 +28,7 @@ urlpatterns = i18n_patterns(
 urlpatterns += [
     path('admin/', admin.site.urls),
     path("logs/", include("log_viewer.urls")),
+    path('tinymce/', include('tinymce.urls')),
     path(
         "sitemap.xml",
         sitemap,

@@ -40,14 +40,7 @@
               </div>
 
               <div class="row mt-20">
-                {% for bat_image in bat.images.all %}
-                <div class="col-md-6 mb-20">
-                  <img
-                    src="{% if bat_image %}{{bat_image}}{% endif %}"
-                    alt="{{bat.name}} image"
-                  />
-                </div>
-                {% endfor %}
+                {% include "species/components/bat_gallery.html" with bat_images=bat.images.all bat=bat %}
               </div>
             </div>
           </div>

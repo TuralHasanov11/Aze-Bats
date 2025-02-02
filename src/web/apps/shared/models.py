@@ -2,17 +2,6 @@ from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-
-
-class RichTextField(models.TextField):
-    description = _("Rich text editor field")
-
-    def __init__(self, *args, **kwargs):
-        kwargs["null"] = True
-        kwargs["blank"] = True
-        super().__init__(*args, **kwargs)
-
-
 class LanguageField(models.CharField):
     description = _("Language field")
 

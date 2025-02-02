@@ -6,7 +6,6 @@ from typing import Optional
 from apps.shared.models import (
     LanguageField,
     NameField,
-    RichTextField,
     SlugField,
 )
 from django.db import models
@@ -14,6 +13,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from apps.shared.specification import Specification
+from tinymce import models as tinymce_models
 
 
 class ProjectManager(models.Manager):
@@ -38,7 +38,7 @@ class Project(models.Model):
     cover_image = models.ImageField(
         upload_to=upload_project_cover_image_to_func, verbose_name=_("Cover Image")
     )
-    description = RichTextField()
+    description = tinymce_models.HTMLField()
     language = LanguageField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -79,7 +79,7 @@ class SiteVisit(models.Model):
     cover_image = models.ImageField(
         upload_to=upload_site_visit_cover_image_to_func, verbose_name=_("Cover Image")
     )
-    description = RichTextField()
+    description = tinymce_models.HTMLField()
     language = LanguageField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

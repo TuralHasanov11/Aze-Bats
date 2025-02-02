@@ -1,0 +1,26 @@
+{% load i18n %} 
+
+<div class="gallery-area py-120">
+  <div class="container">
+    <div class="row popup-gallery">
+      {% for bat_image in bat_images %}
+      <div class="col-md-4">
+        <div class="gallery-item">
+          <div class="gallery-img">
+            <img src="{% if bat_image.image %}{{bat_image.image.url}}{% endif %}" alt="{{bat.name}} {% translate "image" %}" />
+          </div>
+          <div class="gallery-content">
+            <a
+              class="popup-img gallery-link"
+              href="{% if bat_image.image %}{{bat_image.image.url}}{% endif %}"
+              ><i class="far fa-plus"></i
+            ></a>
+            <div class="gallery-info">
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

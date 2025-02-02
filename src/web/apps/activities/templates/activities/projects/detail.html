@@ -5,9 +5,10 @@
 {% block content %}
 
 
-{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title=project.name %}
+{% with breadcrumb_image=project.cover_image.url breadcrumb_title=project.name %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
+
 
 <div class="blog-single-area pt-120 pb-120">
     <div class="container">

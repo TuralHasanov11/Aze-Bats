@@ -1,12 +1,14 @@
 {% extends 'shared/base_layout.html' %} 
 {% load static %} 
 {% load i18n %} 
+{% load static_texts %}
 {% block title %} {% translate "Not Found" %}{% endblock title %} 
-{% block description %} {% translate "Not Found Meta Description" %}{% endblock description %} 
 
 {% block content %}
 
-{% with breadcrumb_image='base/img/breadcrumb/01.jpg' breadcrumb_title='Not Found' %}
+{% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
+
+{% with breadcrumb_title='Not Found' %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
 
@@ -16,9 +18,7 @@
       <div class="error-wrapper">
         <h2>{% translate "Page Not Found" %}!</h2>
         <p>
-          {% blocktranslate %} 
-          The page you looking for not found may be it not exist or removed. 
-          {% endblocktranslate %}
+          {% get_static_text 'page_not_found' CURRENT_LANGUAGE %}
         </p>
         <a href="{% url 'apps.home:home' %}" class="theme-btn"
           >{% translate "Go Back Home" %} <i class="far fa-home"></i

@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+from typing import Iterable, List
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views import View
@@ -14,6 +16,7 @@ from apps.activities.specifications import (
     SearchProjectsSpecification,
     SearchSiteVisitsSpecification,
 )
+from apps.home.models import CarouselItem
 
 
 class HomeView(View):
@@ -21,11 +24,12 @@ class HomeView(View):
         site_visits = SiteVisit.entries.list()[:3]
         projects = Project.entries.list()[:3]
         articles = Article.entries.list()[:3]
+        carousel_items = CarouselItem.objects.all()
 
         return render(
             request,
             "home/home.html",
-            {"site_visits": site_visits, "projects": projects, "articles": articles},
+            {"site_visits": site_visits, "projects": projects, "articles": articles, "carousel_items": carousel_items},
         )
 
 
