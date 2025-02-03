@@ -171,13 +171,15 @@ STATICFILES_BASE_DIR.mkdir(exist_ok=True, parents=True)
 STATICFILES_DIRS = [
     STATICFILES_BASE_DIR
 ]
-STATIC_ROOT = BASE_DIR / "static-cdn"
 
 MEDIA_URL = "/media/"
 if not DEBUG:
-    MEDIA_ROOT = "/home/aze_bats/public_html/media/"
+    MEDIA_ROOT = "/home/azeribat/public_html/media/"
+    STATIC_ROOT = "/home/azeribat/public_html/static/"
 else:
     MEDIA_ROOT = BASE_DIR / "media"
+    STATIC_ROOT = BASE_DIR / "static-cdn"
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
