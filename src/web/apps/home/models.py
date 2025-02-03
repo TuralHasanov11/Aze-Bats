@@ -24,6 +24,7 @@ class CarouselItem(models.Model):
     image = models.ImageField(upload_to='carousel/', verbose_name=_('Image'))
     description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
     order = models.PositiveIntegerField(default=0, verbose_name=_('Order'))
+    language = LanguageField()
 
     class Meta:
         ordering = ['order']

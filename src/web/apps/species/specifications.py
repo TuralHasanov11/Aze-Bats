@@ -1,5 +1,5 @@
 from typing import Optional
-from apps.species.models import Bat, BatAttribute
+from apps.species.models import Bat, BatAttribute, Family, Genus
 from apps.shared.specification import Specification
 from django.db.models import QuerySet, Prefetch
 
@@ -31,3 +31,17 @@ class SearchBatsSpecification(Specification[Bat]):
         if self.search:
             queryset = queryset.filter(name__icontains=self.search)
         return super().handle(queryset)
+
+
+class GetFamiliesSpecification(Specification[Family]):
+    def handle(self, queryset: QuerySet[Family]) -> QuerySet[Family]:
+        return queryset
+    
+    
+class GetFamiliesWithGenusesSpecification(Specification[Family]):
+    def handle(self, queryset: QuerySet[Family]) -> QuerySet[Family]:
+        return queryset.prefetch_related("genuses")
+    
+class GetGenusesWithFamilySpecification(Specification[Genus]):
+    def handle(self, queryset: QuerySet[Genus]) -> QuerySet[Genus]:
+        return queryset.select_related("family")

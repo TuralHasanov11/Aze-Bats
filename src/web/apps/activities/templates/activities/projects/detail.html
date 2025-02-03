@@ -2,8 +2,9 @@
 {% load static %} 
 {% load i18n %} 
 {% block title %}{{project.name}}{% endblock title %}
-{% block content %}
+{% block meta_description %} {{project.name}} {% endblock meta_description %} 
 
+{% block content %}
 
 {% with breadcrumb_image=project.cover_image.url breadcrumb_title=project.name %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}

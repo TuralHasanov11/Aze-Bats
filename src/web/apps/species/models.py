@@ -17,14 +17,15 @@ from tinymce import models as tinymce_models
 
 
 class FamilyManager(models.Manager):
-    def get_by_slug(self, slug: str) -> Optional[Family]:
-        return self.get_queryset().filter(slug=slug).first()
-
-    def list(self) -> models.QuerySet[Family]:
+    def list(self, specification: Optional[Specification[Family]] = None) -> models.QuerySet[Family]:
+        if specification:
+            return specification.handle(self.get_queryset())
         return self.get_queryset().all()
     
-    def list_with_genuses(self) -> models.QuerySet[Family]:
-        return self.get_queryset().prefetch_related("genuses")
+    def single(self, specification: Optional[Specification[Family]] = None) -> Optional[Family]:
+        if specification:
+            return specification.handle(self.get_queryset()).first()
+        return self.get_queryset().first()
 
 
 class Family(models.Model):
@@ -56,11 +57,15 @@ class Family(models.Model):
 
 
 class GenusManager(models.Manager):
-    def get_by_slug(self, slug: str, language: str) -> Optional[Genus]:
-        return self.get_queryset().filter(slug=slug).first()
-
-    def list(self, language: str) -> models.QuerySet[Genus]:
+    def list(self, specification: Optional[Specification[Genus]] = None) -> models.QuerySet[Genus]:
+        if specification:
+            return specification.handle(self.get_queryset())
         return self.get_queryset().all()
+    
+    def single(self, specification: Optional[Specification[Genus]] = None) -> Optional[Genus]:
+        if specification:
+            return specification.handle(self.get_queryset()).first()
+        return self.get_queryset().first()
 
 
 class Genus(models.Model):

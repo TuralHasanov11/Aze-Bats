@@ -2,7 +2,10 @@
 {% load static %} 
 {% load i18n %} 
 {% block title %}{{bat.name}}{% endblock title %} 
+{% block meta_description %} {{bat.name}} {% endblock meta_description %} 
+
 {% block content %} 
+
 {% with breadcrumb_image=bat.cover_image.url breadcrumb_title=bat.name %} 
 {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %} 
 {% endwith %}

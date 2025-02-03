@@ -10,6 +10,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.translation import get_language
 
 from apps.home.author import load_author_data
+from apps.species.specifications import GetFamiliesWithGenusesSpecification
 
 
 
@@ -30,7 +31,7 @@ class MenuItem:
 
 
 def base_menu(request: HttpRequest) -> Dict[str, List[MenuItem]]:
-    families = Family.entries.list_with_genuses()
+    families = GetFamiliesWithGenusesSpecification().handle(Family.entries.list())
     family_menu_items: List[MenuItem] = [
         MenuItem(
             name=_("All"),

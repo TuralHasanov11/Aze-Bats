@@ -15,6 +15,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views import View
+from django.utils.translation import get_language
 
 
 class HomeView(View):
@@ -22,7 +23,7 @@ class HomeView(View):
         site_visits = SiteVisit.entries.list()[:3]
         projects = Project.entries.list()[:3]
         articles = Article.entries.list()[:3]
-        carousel_items = CarouselItem.objects.all()
+        carousel_items = CarouselItem.objects.filter(language=get_language())
 
         return render(
             request,
