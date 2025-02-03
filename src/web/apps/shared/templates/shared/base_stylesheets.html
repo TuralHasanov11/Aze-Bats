@@ -21,7 +21,11 @@
   referrerpolicy="no-referrer"
 />
 
-<link nonce="{{request.csp_nonce}}" rel="stylesheet" href="{% static 'base/css/magnific-popup.min.css' %}" />
+{% comment %} <link nonce="{{request.csp_nonce}}" rel="stylesheet" href="{% static 'base/css/magnific-popup.min.css' %}" /> {% endcomment %}
+<link nonce="{{request.csp_nonce}}" rel="preload" href="{% static 'base/css/magnific-popup.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="{% static 'base/css/magnific-popup.min.css' %}">
+</noscript>
 
 <link
   rel="stylesheet"

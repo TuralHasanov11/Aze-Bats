@@ -3,6 +3,7 @@
 <div class="blog-item">
   <div class="blog-item-img">
     <img
+      loading="lazy"
       src="{% if project.cover_image %}{{project.cover_image.url}}{% endif %}"
       alt="{{project.name}} cover image"
     />

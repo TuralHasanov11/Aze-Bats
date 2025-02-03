@@ -1,6 +1,7 @@
 <div class="recent-post-single">
   <div class="recent-post-img">
     <img
+      loading="lazy"
       src="{% if project.cover_image %}{{project.cover_image.url}}{% endif %}"
       alt="{{project.name}} thumb"
     />

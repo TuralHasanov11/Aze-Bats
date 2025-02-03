@@ -1,6 +1,7 @@
 <div class="recent-post-single">
   <div class="recent-post-img">
     <img
+      loading="lazy"
       src="{% if site_visit.cover_image %}{{site_visit.cover_image.url}}{% endif %}"
       alt="{{site_visit.name}} thumb"
     />

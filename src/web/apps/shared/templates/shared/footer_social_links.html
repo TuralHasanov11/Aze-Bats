@@ -1,3 +1,5 @@
+{% load i18n %}
+
 {% for social_link in social_links %}
 <li>
   <a href="{{social_link.url}}" aria-label="{{social_link.name}} {% translate 'link' %}" target="_blank" rel="noreferrer"><i class="{{social_link.icon}}"></i></a>
