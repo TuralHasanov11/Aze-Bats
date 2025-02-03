@@ -60,7 +60,7 @@
   }
 
   ready(function() {
-    if (tinyMCE !== undefined) {
+    if (!tinyMCE) {
       throw 'tinyMCE is not loaded. If you customized TINYMCE_JS_URL, double-check its content.';
     }
     // initialize the TinyMCE editors on load

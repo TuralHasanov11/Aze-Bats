@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 12:37+0100\n"
+"POT-Creation-Date: 2025-02-03 17:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\apps\activities\admin.py:18 .\apps\activities\admin.py:19
-msgid "Activities administration"
-msgstr ""
-
-#: .\apps\activities\admin.py:20
-msgid "Welcome to the Activities administration"
-msgstr ""
-
 #: .\apps\activities\models.py:49 .\apps\activities\models.py:113
 #: .\apps\species\models.py:114 .\apps\species\models.py:157
 msgid "Cover Image"
+msgstr ""
+
+#: .\apps\activities\models.py:51 .\apps\activities\models.py:115
+#: .\apps\home\models.py:25 .\apps\species\models.py:147
+msgid "Description"
+msgstr ""
+
+#: .\apps\activities\models.py:53 .\apps\activities\models.py:117
+#: .\apps\articles\models.py:27 .\apps\species\models.py:33
+#: .\apps\species\models.py:70 .\apps\species\models.py:117
+msgid "Creation Date"
+msgstr ""
+
+#: .\apps\activities\models.py:54 .\apps\activities\models.py:118
+#: .\apps\articles\models.py:28 .\apps\species\models.py:34
+#: .\apps\species\models.py:71 .\apps\species\models.py:118
+msgid "Update Date"
 msgstr ""
 
 #: .\apps\activities\models.py:59
@@ -54,21 +63,22 @@ msgstr ""
 msgid "Site Visits"
 msgstr ""
 
-#: .\apps\activities\templates\activities\author.html:7
+#: .\apps\activities\templates\activities\author.html:8
 #: .\apps\home\templates\home\components\author_list.html:17
 msgid "profile image"
 msgstr ""
 
-#: .\apps\activities\templates\activities\author.html:11
+#: .\apps\activities\templates\activities\author.html:12
+#: .\apps\articles\models.py:26
 msgid "Author"
 msgstr ""
 
-#: .\apps\activities\templates\activities\projects\detail.html:47
-msgid "Recent Projects"
+#: .\apps\activities\templates\activities\components\search.html:4
+#: .\apps\home\templates\home\search.html:4
+msgid "Search"
 msgstr ""
 
-#: .\apps\activities\templates\activities\projects\detail.html:54
-#: .\apps\activities\templates\activities\site_visits\detail.html:44
+#: .\apps\activities\templates\activities\components\social_share.html:4
 msgid "Follow Us"
 msgstr ""
 
@@ -80,12 +90,16 @@ msgstr ""
 msgid "Latest Projects"
 msgstr ""
 
-#: .\apps\activities\templates\activities\projects\project_list_item.html:30
+#: .\apps\activities\templates\activities\projects\project_list_item.html:31
 #: .\apps\articles\templates\articles\components\article_list_item.html:16
 msgid "Read More"
 msgstr ""
 
-#: .\apps\activities\templates\activities\site_visits\detail.html:36
+#: .\apps\activities\templates\activities\projects\recent_project_list.html:4
+msgid "Recent Projects"
+msgstr ""
+
+#: .\apps\activities\templates\activities\site_visits\recent_site_visit_list.html:4
 msgid "Recent Site Visits"
 msgstr ""
 
@@ -93,12 +107,8 @@ msgstr ""
 msgid "Our Recent Site Visits"
 msgstr ""
 
-#: .\apps\articles\admin.py:12 .\apps\articles\admin.py:13
-msgid "Articles administration"
-msgstr ""
-
-#: .\apps\articles\admin.py:14
-msgid "Welcome to the Articles administration"
+#: .\apps\articles\models.py:25
+msgid "Link"
 msgstr ""
 
 #: .\apps\articles\models.py:34
@@ -113,11 +123,11 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: .\apps\home\admin.py:17 .\apps\home\admin.py:18
+#: .\apps\home\admin.py:20 .\apps\home\admin.py:21
 msgid "Administration"
 msgstr ""
 
-#: .\apps\home\admin.py:19
+#: .\apps\home\admin.py:22
 msgid "Welcome to the Administration"
 msgstr ""
 
@@ -142,12 +152,27 @@ msgid "Activities"
 msgstr ""
 
 #: .\apps\home\context_processors.py:89
-#: .\apps\home\templates\home\components\family_list.html:9
 #: .\apps\home\templates\home\search.html:20 .\apps\species\models.py:125
 #: .\apps\species\templates\species\list.html:4
 #: .\apps\species\templates\species\list.html:19 .\apps\species\views.py:29
 #: .\apps\species\views.py:47
 msgid "Bats"
+msgstr ""
+
+#: .\apps\home\models.py:22
+msgid "Title"
+msgstr ""
+
+#: .\apps\home\models.py:23
+msgid "Sub Title"
+msgstr ""
+
+#: .\apps\home\models.py:24
+msgid "Image"
+msgstr ""
+
+#: .\apps\home\models.py:26
+msgid "Order"
 msgstr ""
 
 #: .\apps\home\models.py:30
@@ -158,11 +183,28 @@ msgstr ""
 msgid "Carousel Items"
 msgstr ""
 
-#: .\apps\home\models.py:82
+#: .\apps\home\models.py:61
+msgid "About"
+msgstr ""
+
+#: .\apps\home\models.py:62 .\apps\home\templates\home\privacy_policy.html:5
+#: .\apps\home\templates\home\privacy_policy.html:20 .\apps\home\views.py:53
+msgid "Privacy Policy"
+msgstr ""
+
+#: .\apps\home\models.py:70
+msgid "Key"
+msgstr ""
+
+#: .\apps\home\models.py:72
+msgid "Content"
+msgstr ""
+
+#: .\apps\home\models.py:78
 msgid "Static Text"
 msgstr ""
 
-#: .\apps\home\models.py:83
+#: .\apps\home\models.py:79
 msgid "Static Texts"
 msgstr ""
 
@@ -227,29 +269,25 @@ msgstr ""
 msgid "Go Back Home"
 msgstr ""
 
-#: .\apps\home\templates\home\privacy_policy.html:5
-#: .\apps\home\templates\home\privacy_policy.html:20 .\apps\home\views.py:53
-msgid "Privacy Policy"
-msgstr ""
-
-#: .\apps\home\templates\home\search.html:4
-msgid "Search"
-msgstr ""
-
 #: .\apps\home\templates\home\search.html:82
 msgid "No Entry Found"
 msgstr ""
 
 #: .\apps\shared\models.py:6
-msgid "Language field"
+msgid "Language"
 msgstr ""
 
 #: .\apps\shared\models.py:16
-msgid "Slug field"
+msgid "Slug"
 msgstr ""
 
 #: .\apps\shared\models.py:27
-msgid "Name field"
+msgid "Name"
+msgstr ""
+
+#: .\apps\shared\templates\shared\base_footer.html:10
+#: .\apps\shared\templates\shared\base_footer.html:11
+msgid "Footer logo"
 msgstr ""
 
 #: .\apps\shared\templates\shared\base_footer.html:28
@@ -273,6 +311,19 @@ msgstr ""
 msgid "All Rights Reserved"
 msgstr ""
 
+#: .\apps\shared\templates\shared\base_header.html:65
+msgid "logo"
+msgstr ""
+
+#: .\apps\shared\templates\shared\base_header.html:69
+msgid "Open search-box button"
+msgstr ""
+
+#: .\apps\shared\templates\shared\footer_social_links.html:5
+#: .\apps\shared\templates\shared\social_links.html:4
+msgid "link"
+msgstr ""
+
 #: .\apps\shared\templates\shared\pagination.html:6
 msgid "Pagination"
 msgstr ""
@@ -285,27 +336,25 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: .\apps\species\admin.py:33 .\apps\species\admin.py:34
-msgid "Species administration"
-msgstr ""
-
-#: .\apps\species\admin.py:35
-msgid "Welcome to the Species administration"
-msgstr ""
-
 #: .\apps\species\models.py:39
 msgid "Families"
 msgstr ""
 
-#: .\apps\species\models.py:40
+#: .\apps\species\models.py:40 .\apps\species\models.py:69
 msgid "Family"
 msgstr ""
 
 #: .\apps\species\models.py:76 .\apps\species\models.py:77
+#: .\apps\species\models.py:115
 msgid "Genus"
 msgstr ""
 
-#: .\apps\species\models.py:124
+#: .\apps\species\models.py:116
+msgid "Is in Red List"
+msgstr ""
+
+#: .\apps\species\models.py:124 .\apps\species\models.py:146
+#: .\apps\species\models.py:156
 msgid "Bat"
 msgstr ""
 

@@ -1,0 +1,8 @@
+{% load i18n %}
+
+<div class="widget recent-post">
+    <h5 class="widget-title">{% translate "Recent Projects" %}</h5>
+    {% for recent_project in recent_projects %}
+    {% include "activities/projects/recent_project_list_item.html" with project=recent_project %}
+    {% endfor %}
+  </div>

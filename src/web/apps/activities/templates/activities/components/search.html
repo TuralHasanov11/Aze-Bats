@@ -1,0 +1,9 @@
+{% load i18n %}
+
+<div class="widget search">
+  <h5 class="widget-title">{% translate "Search" %}</h5>
+  <form action="{% url 'apps.home:search' %}" class="search-form">
+    {{search_form.search}}
+    <button type="submit"><i class="far fa-search"></i></button>
+  </form>
+</div>

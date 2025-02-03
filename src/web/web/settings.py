@@ -168,10 +168,12 @@ LOCALE_PATHS = (BASE_DIR / "locale/",)
 STATIC_URL = "static/"
 STATICFILES_BASE_DIR = BASE_DIR / "static"
 STATICFILES_BASE_DIR.mkdir(exist_ok=True, parents=True)
-STATICFILES_DIRS = [STATICFILES_BASE_DIR]
+STATICFILES_DIRS = [
+    STATICFILES_BASE_DIR
+]
 STATIC_ROOT = BASE_DIR / "static-cdn"
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 if not DEBUG:
     MEDIA_ROOT = "/home/aze_bats/public_html/media/"
 else:
@@ -275,6 +277,31 @@ LOGGING = {
             "propagate": False,
         },
         "django.server": DEFAULT_LOGGING["loggers"]["django.server"],
+        "apps.home": {
+            "handlers": ["file"],
+            "propagate": False,
+            "level": LOGLEVEL,
+        },
+        "apps.activities": {
+            "handlers": ["file"],
+            "propagate": False,
+            "level": LOGLEVEL,
+        },
+        "apps.articles": {
+            "handlers": ["file"],
+            "propagate": False,
+            "level": LOGLEVEL,
+        },
+        "apps.species": {
+            "handlers": ["file"],
+            "propagate": False,
+            "level": LOGLEVEL,
+        },
+        "apps.shared": {
+            "handlers": ["file"],
+            "propagate": False,
+            "level": LOGLEVEL,
+        },
     },
 }
 
@@ -302,6 +329,16 @@ X_FRAME_OPTIONS = "ALLOW-FROM https://www.youtube.com/"
 APP_NAME = os.environ.get("APP_NAME", "Bats of Azerbaijan")
 
 
-TINYMCE_JS_URL = STATIC_URL + 'tinymce/tinymce.min.js'
-TINYMCE_SPELLCHECKER = True
-TINYMCE_COMPRESSOR = True
+TINYMCE_DEFAULT_CONFIG = {
+    "height": 1000,
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table code help wordcount",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "language": "en",
+}

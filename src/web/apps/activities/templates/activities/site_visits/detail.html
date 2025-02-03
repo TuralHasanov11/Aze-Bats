@@ -17,37 +17,18 @@
           <img src="{% if site_visit.cover_image %}{{site_visit.cover_image.url}}{% endif %}" alt="" />
           <div class="my-4">
             <h3 class="mb-2">{{site_visit.name}}</h3>
-            {{site_visit.description}}
+            {{site_visit.description|safe}}
           </div>
         </div>
         {% include "activities/author.html" with author=author %}
       </div>
       <div class="col-lg-4">
         <aside class="sidebar">
-          <div class="widget search">
-            <h5 class="widget-title">Search</h5>
-            <form action="{% url 'apps.home:search' %}" class="search-form">
-              {{search_form.search}}
-              <button type="submit"><i class="far fa-search"></i></button>
-            </form>
-          </div>
+          {% include "activities/components/search.html" with search_form=search_form %}
 
-          <div class="widget recent-post">
-            <h5 class="widget-title">{% translate "Recent Site Visits" %}</h5>
-            {% for recent_site_visit in recent_site_visits %}
-            {% include "activities/site_visits/recent_site_visit_list_item.html" with site_visit=recent_site_visit %}
-            {% endfor %}
+          {% include "activities/site_visits/recent_site_visit_list.html" with recent_site_visits=recent_site_visits %}
 
-          </div>
-
-          <div class="widget social-share">
-            <h5 class="widget-title">{% translate "Follow Us" %}</h5>
-            <div class="social-share-link">
-              {% include "shared/social_links.html" with social_links=author.social_links %}
-            </div>
-          </div>
-
-
+          {% include "activities/components/social_share.html" %}
         </aside>
       </div>
     </div>

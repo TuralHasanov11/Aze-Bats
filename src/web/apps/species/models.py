@@ -30,8 +30,8 @@ class FamilyManager(models.Manager):
 class Family(models.Model):
     name = NameField(unique=True)
     slug = SlugField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Creation Date"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Update Date"))
 
     entries = FamilyManager()
 
@@ -66,9 +66,9 @@ class GenusManager(models.Manager):
 class Genus(models.Model):
     name = NameField(unique=True)
     slug = SlugField()
-    family = models.ForeignKey(Family, related_name="genuses", on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    family = models.ForeignKey(Family, related_name="genuses", on_delete=models.CASCADE, verbose_name=_("Family"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Creation Date"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Update Date"))
 
     entries = GenusManager()
 
@@ -112,10 +112,10 @@ class Bat(models.Model):
     name = NameField(unique=True)
     slug = SlugField()
     cover_image = models.ImageField(upload_to=upload_bat_cover_image_to_func, verbose_name=_("Cover Image"))
-    genus = models.ForeignKey(Genus, related_name="bats", on_delete=models.CASCADE)
-    is_in_red_list = models.BooleanField(default=False, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    genus = models.ForeignKey(Genus, related_name="bats", on_delete=models.CASCADE, verbose_name=_("Genus"))
+    is_in_red_list = models.BooleanField(default=False, blank=True, verbose_name=_("Is in Red List"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Creation Date"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Update Date"))
 
     entries = BatManager()
 
@@ -143,8 +143,8 @@ class Bat(models.Model):
 
 
 class BatAttribute(models.Model):
-    bat = models.ForeignKey(Bat, related_name="attributes", on_delete=models.CASCADE)
-    description = tinymce_models.HTMLField()
+    bat = models.ForeignKey(Bat, related_name="attributes", on_delete=models.CASCADE, verbose_name=_("Bat"))
+    description = tinymce_models.HTMLField(verbose_name=_("Description"))
     language = LanguageField()
 
 def upload_bat_image_to_func(instance: models.Model, filename: str) -> str:
@@ -153,7 +153,7 @@ def upload_bat_image_to_func(instance: models.Model, filename: str) -> str:
     raise ValueError("Invalid instance type for upload_bat_image_to_func")
 
 class BatImage(models.Model):
-    bat = models.ForeignKey(Bat, on_delete=models.CASCADE, related_name="images")
+    bat = models.ForeignKey(Bat, on_delete=models.CASCADE, related_name="images", verbose_name=_("Bat"))
     image = models.ImageField(upload_to=upload_bat_image_to_func, verbose_name=_("Cover Image"))
 
     def __str__(self):

@@ -1,0 +1,8 @@
+{% load i18n %}
+
+<div class="widget social-share">
+  <h5 class="widget-title">{% translate "Follow Us" %}</h5>
+  <div class="social-share-link">
+    {% include "shared/social_links.html" with social_links=author.social_links %}
+  </div>
+</div>

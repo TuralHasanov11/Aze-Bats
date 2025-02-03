@@ -3,7 +3,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 class LanguageField(models.CharField):
-    description = _("Language field")
+    description = _("Language")
+    verbose_name = _("Language")
 
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = 2
@@ -13,7 +14,8 @@ class LanguageField(models.CharField):
 
 
 class SlugField(models.SlugField):
-    description = _("Slug field")
+    description = _("Slug")
+    verbose_name = _("Slug")
 
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = 255
@@ -24,7 +26,8 @@ class SlugField(models.SlugField):
 
 
 class NameField(models.CharField):
-    description = _("Name field")
+    description = _("Name")
+    verbose_name = _("Name")
 
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = 255

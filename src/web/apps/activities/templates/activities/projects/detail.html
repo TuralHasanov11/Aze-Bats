@@ -24,7 +24,7 @@
                   <h3 class="blog-details-title mb-20">
                     {{project.name}}
                   </h3>
-                  {{project.description}}
+                  {{project.description|safe}}
                 </div>
                 
                 {% include "activities/author.html" with author=author %}
@@ -35,27 +35,12 @@
         </div>
         <div class="col-lg-4">
           <aside class="sidebar">
-            <div class="widget search">
-              <h5 class="widget-title">Search</h5>
-              <form action="{% url 'apps.home:search' %}" class="search-form">
-                {{search_form.search}}
-                <button type="submit"><i class="far fa-search"></i></button>
-              </form>
-            </div>
+            
+            {% include "activities/components/search.html" with search_form=search_form %}
 
-            <div class="widget recent-post">
-              <h5 class="widget-title">{% translate "Recent Projects" %}</h5>
-              {% for recent_project in recent_projects %}
-              {% include "activities/projects/recent_project_list_item.html" with project=recent_project %}
-              {% endfor %}
-            </div>
+            {% include "activities/projects/recent_project_list.html" with recent_projects=recent_projects %}
 
-            <div class="widget social-share">
-              <h5 class="widget-title">{% translate "Follow Us" %}</h5>
-              <div class="social-share-link">
-                {% include "shared/social_links.html" with social_links=author.social_links %}
-              </div>
-            </div>
+            {% include "activities/components/social_share.html" %}
 
           </aside>
         </div>

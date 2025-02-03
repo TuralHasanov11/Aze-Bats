@@ -1,30 +1,34 @@
-from apps.species import models
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from tinymce.widgets import TinyMCE
+from django.db import models
+
+from apps.species.models import Bat, BatAttribute, BatImage, Family, Genus
 
 
 class BatImageInlineAdmin(admin.StackedInline):
-    model = models.BatImage
+    model = BatImage
 
 
 class BatAttributeInlineAdmin(admin.StackedInline):
-    model = models.BatAttribute
+    model = BatAttribute
 
 
-@admin.register(models.Bat)
+@admin.register(Bat)
 class BatAdmin(admin.ModelAdmin):
     list_display = ("name", "is_in_red_list", "genus", "updated_at")
     inlines = [BatImageInlineAdmin, BatAttributeInlineAdmin]
     readonly_fields = ("created_at", "updated_at", "slug")
 
 
-@admin.register(models.Genus)
+@admin.register(Genus)
 class GenusModel(admin.ModelAdmin):
     list_display = ("name", "family", "updated_at")
     readonly_fields = ("created_at", "updated_at", "slug")
 
 
-@admin.register(models.Family)
+@admin.register(Family)
 class FamilyModel(admin.ModelAdmin):
     list_display = ("name", "updated_at")
     readonly_fields = ("created_at", "updated_at", "slug")
+    formfield_overrides = {models.TextField: {"widget": TinyMCE()}}

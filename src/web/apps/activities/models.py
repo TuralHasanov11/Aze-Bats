@@ -48,10 +48,10 @@ class Project(models.Model):
     cover_image = models.ImageField(
         upload_to=upload_project_cover_image_to_func, verbose_name=_("Cover Image")
     )
-    description = tinymce_models.HTMLField()
+    description = tinymce_models.HTMLField(verbose_name=_("Description"))
     language = LanguageField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Creation Date"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Update Date"))
 
     entries = ProjectManager()
 
@@ -112,10 +112,10 @@ class SiteVisit(models.Model):
     cover_image = models.ImageField(
         upload_to=upload_site_visit_cover_image_to_func, verbose_name=_("Cover Image")
     )
-    description = tinymce_models.HTMLField()
+    description = tinymce_models.HTMLField(verbose_name=_("Description"))
     language = LanguageField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Creation Date"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Update Date"))
 
     entries = SiteVisitManager()
 

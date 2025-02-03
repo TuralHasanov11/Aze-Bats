@@ -22,10 +22,10 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
     name = NameField()
-    url = models.URLField(blank=False, null=False)
-    author = models.CharField(null=False, blank=False, max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    url = models.URLField(blank=False, null=False, verbose_name=_("Link"))
+    author = models.CharField(null=False, blank=False, max_length=255, verbose_name=_("Author"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Creation Date"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Update Date"))
 
     entries = ArticleManager()
 

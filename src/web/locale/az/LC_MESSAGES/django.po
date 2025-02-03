@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 12:37+0100\n"
-"PO-Revision-Date: 2025-02-03 12:38+0400\n"
+"POT-Creation-Date: 2025-02-03 17:43+0100\n"
+"PO-Revision-Date: 2025-02-03 17:47+0400\n"
 "Last-Translator:   <superuser@test.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,18 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: .\apps\activities\admin.py:18 .\apps\activities\admin.py:19
-msgid "Activities administration"
-msgstr "Fəaliyyətlər administrasiyası"
-
-#: .\apps\activities\admin.py:20
-msgid "Welcome to the Activities administration"
-msgstr "Fəaliyyətlər administrasiyasına xoş gəldiniz"
-
 #: .\apps\activities\models.py:49 .\apps\activities\models.py:113
 #: .\apps\species\models.py:114 .\apps\species\models.py:157
 msgid "Cover Image"
 msgstr "Başlıq Şəkli"
+
+#: .\apps\activities\models.py:51 .\apps\activities\models.py:115
+#: .\apps\home\models.py:25 .\apps\species\models.py:147
+msgid "Description"
+msgstr "Məzmun"
+
+#: .\apps\activities\models.py:53 .\apps\activities\models.py:117
+#: .\apps\articles\models.py:27 .\apps\species\models.py:33
+#: .\apps\species\models.py:70 .\apps\species\models.py:117
+msgid "Creation Date"
+msgstr "Yaradılma Tarixi"
+
+#: .\apps\activities\models.py:54 .\apps\activities\models.py:118
+#: .\apps\articles\models.py:28 .\apps\species\models.py:34
+#: .\apps\species\models.py:71 .\apps\species\models.py:118
+msgid "Update Date"
+msgstr "Yenilənmə Tarixi"
 
 #: .\apps\activities\models.py:59
 msgid "Project"
@@ -55,21 +64,22 @@ msgstr "Sahə Səyahəti"
 msgid "Site Visits"
 msgstr "Sahə Səyahətləri"
 
-#: .\apps\activities\templates\activities\author.html:7
+#: .\apps\activities\templates\activities\author.html:8
 #: .\apps\home\templates\home\components\author_list.html:17
 msgid "profile image"
 msgstr "profil şəkli"
 
-#: .\apps\activities\templates\activities\author.html:11
+#: .\apps\activities\templates\activities\author.html:12
+#: .\apps\articles\models.py:26
 msgid "Author"
 msgstr "Müəllif"
 
-#: .\apps\activities\templates\activities\projects\detail.html:47
-msgid "Recent Projects"
-msgstr "Ən Yeni Proyektlər"
+#: .\apps\activities\templates\activities\components\search.html:4
+#: .\apps\home\templates\home\search.html:4
+msgid "Search"
+msgstr "Axtar"
 
-#: .\apps\activities\templates\activities\projects\detail.html:54
-#: .\apps\activities\templates\activities\site_visits\detail.html:44
+#: .\apps\activities\templates\activities\components\social_share.html:4
 msgid "Follow Us"
 msgstr "Bizi İzləyin"
 
@@ -81,12 +91,16 @@ msgstr "Proyektlərimiz"
 msgid "Latest Projects"
 msgstr "Ən Son Proyektlər"
 
-#: .\apps\activities\templates\activities\projects\project_list_item.html:30
+#: .\apps\activities\templates\activities\projects\project_list_item.html:31
 #: .\apps\articles\templates\articles\components\article_list_item.html:16
 msgid "Read More"
 msgstr "Ətraflı Oxu"
 
-#: .\apps\activities\templates\activities\site_visits\detail.html:36
+#: .\apps\activities\templates\activities\projects\recent_project_list.html:4
+msgid "Recent Projects"
+msgstr "Ən Yeni Proyektlər"
+
+#: .\apps\activities\templates\activities\site_visits\recent_site_visit_list.html:4
 msgid "Recent Site Visits"
 msgstr "Ən Yeni Sahə Səyahətləri"
 
@@ -94,13 +108,9 @@ msgstr "Ən Yeni Sahə Səyahətləri"
 msgid "Our Recent Site Visits"
 msgstr "Ən Yeni Sahə Səyahətlərimiz"
 
-#: .\apps\articles\admin.py:12 .\apps\articles\admin.py:13
-msgid "Articles administration"
-msgstr "Məqalələr administrasiyası"
-
-#: .\apps\articles\admin.py:14
-msgid "Welcome to the Articles administration"
-msgstr "Məqalələr administrasiyasına xoş gəldiniz"
+#: .\apps\articles\models.py:25
+msgid "Link"
+msgstr "Link"
 
 #: .\apps\articles\models.py:34
 msgid "Article"
@@ -114,13 +124,11 @@ msgstr "Məqalə"
 msgid "Articles"
 msgstr "Məqalələr"
 
-#: .\apps\home\admin.py:17 .\apps\home\admin.py:18
-#| msgid "Home administration"
+#: .\apps\home\admin.py:20 .\apps\home\admin.py:21
 msgid "Administration"
 msgstr "Administrasiya"
 
-#: .\apps\home\admin.py:19
-#| msgid "Welcome to the Home administration"
+#: .\apps\home\admin.py:22
 msgid "Welcome to the Administration"
 msgstr "Administrasiyaya xoş gəldiniz"
 
@@ -146,13 +154,29 @@ msgid "Activities"
 msgstr "Fəaliyyətlər"
 
 #: .\apps\home\context_processors.py:89
-#: .\apps\home\templates\home\components\family_list.html:9
 #: .\apps\home\templates\home\search.html:20 .\apps\species\models.py:125
 #: .\apps\species\templates\species\list.html:4
 #: .\apps\species\templates\species\list.html:19 .\apps\species\views.py:29
 #: .\apps\species\views.py:47
 msgid "Bats"
 msgstr "Yarasalar"
+
+#: .\apps\home\models.py:22
+msgid "Title"
+msgstr "Başlıq"
+
+#: .\apps\home\models.py:23
+msgid "Sub Title"
+msgstr "Alt Başlıq"
+
+#: .\apps\home\models.py:24
+#| msgid "image"
+msgid "Image"
+msgstr "Şəkil"
+
+#: .\apps\home\models.py:26
+msgid "Order"
+msgstr "Sıra"
 
 #: .\apps\home\models.py:30
 msgid "Carousel Item"
@@ -162,11 +186,29 @@ msgstr "Karusel "
 msgid "Carousel Items"
 msgstr "Karusel "
 
-#: .\apps\home\models.py:82
+#: .\apps\home\models.py:61
+#| msgid "About Us"
+msgid "About"
+msgstr "Haqqımızda"
+
+#: .\apps\home\models.py:62 .\apps\home\templates\home\privacy_policy.html:5
+#: .\apps\home\templates\home\privacy_policy.html:20 .\apps\home\views.py:53
+msgid "Privacy Policy"
+msgstr "Məxfilik Siyasəti"
+
+#: .\apps\home\models.py:70
+msgid "Key"
+msgstr "Açar Söz"
+
+#: .\apps\home\models.py:72
+msgid "Content"
+msgstr "Mətn"
+
+#: .\apps\home\models.py:78
 msgid "Static Text"
 msgstr "Statik Mətn"
 
-#: .\apps\home\models.py:83
+#: .\apps\home\models.py:79
 msgid "Static Texts"
 msgstr "Statik Mətnlər"
 
@@ -231,30 +273,27 @@ msgstr "Səhifə Mövcud Deyil"
 msgid "Go Back Home"
 msgstr "Ana Səhifəyə Get"
 
-#: .\apps\home\templates\home\privacy_policy.html:5
-#: .\apps\home\templates\home\privacy_policy.html:20 .\apps\home\views.py:53
-msgid "Privacy Policy"
-msgstr "Məxfilik Siyasəti"
-
-#: .\apps\home\templates\home\search.html:4
-msgid "Search"
-msgstr "Axtar"
-
 #: .\apps\home\templates\home\search.html:82
 msgid "No Entry Found"
 msgstr "Məlumat Mövcud Deyil"
 
 #: .\apps\shared\models.py:6
-msgid "Language field"
-msgstr "Dil sahəsi"
+#| msgid "Language field"
+msgid "Language"
+msgstr "Dil"
 
 #: .\apps\shared\models.py:16
-msgid "Slug field"
-msgstr "Kod sahəsi"
+msgid "Slug"
+msgstr ""
 
 #: .\apps\shared\models.py:27
-msgid "Name field"
-msgstr "Ad sahəsi"
+msgid "Name"
+msgstr "Ad"
+
+#: .\apps\shared\templates\shared\base_footer.html:10
+#: .\apps\shared\templates\shared\base_footer.html:11
+msgid "Footer logo"
+msgstr "Alt Bilgi loqosu"
 
 #: .\apps\shared\templates\shared\base_footer.html:28
 msgid "Quick Links"
@@ -277,6 +316,19 @@ msgstr "Müəllif hüquqları"
 msgid "All Rights Reserved"
 msgstr "Bütün Hüquqlar Qorunur"
 
+#: .\apps\shared\templates\shared\base_header.html:65
+msgid "logo"
+msgstr "loqo"
+
+#: .\apps\shared\templates\shared\base_header.html:69
+msgid "Open search-box button"
+msgstr "Axtarış sahəsini açma düyməsi"
+
+#: .\apps\shared\templates\shared\footer_social_links.html:5
+#: .\apps\shared\templates\shared\social_links.html:4
+msgid "link"
+msgstr "link"
+
 #: .\apps\shared\templates\shared\pagination.html:6
 msgid "Pagination"
 msgstr "Səhifələmə"
@@ -289,27 +341,25 @@ msgstr "Öncəki"
 msgid "Next"
 msgstr "Növbəti"
 
-#: .\apps\species\admin.py:33 .\apps\species\admin.py:34
-msgid "Species administration"
-msgstr "Növlər administrasiyası"
-
-#: .\apps\species\admin.py:35
-msgid "Welcome to the Species administration"
-msgstr "Növlər administrasiyasına xoş gəldiniz"
-
 #: .\apps\species\models.py:39
 msgid "Families"
 msgstr "Ailələr"
 
-#: .\apps\species\models.py:40
+#: .\apps\species\models.py:40 .\apps\species\models.py:69
 msgid "Family"
 msgstr "Ailə"
 
 #: .\apps\species\models.py:76 .\apps\species\models.py:77
+#: .\apps\species\models.py:115
 msgid "Genus"
 msgstr "Gen"
 
-#: .\apps\species\models.py:124
+#: .\apps\species\models.py:116
+msgid "Is in Red List"
+msgstr "Qırmızı Kitabdadır"
+
+#: .\apps\species\models.py:124 .\apps\species\models.py:146
+#: .\apps\species\models.py:156
 msgid "Bat"
 msgstr "Yarasa"
 
@@ -328,3 +378,27 @@ msgstr "Azərbaycanca"
 #: .\web\settings.py:162
 msgid "English"
 msgstr "İngiliscə"
+
+#~ msgid "Activities administration"
+#~ msgstr "Fəaliyyətlər administrasiyası"
+
+#~ msgid "Welcome to the Activities administration"
+#~ msgstr "Fəaliyyətlər administrasiyasına xoş gəldiniz"
+
+#~ msgid "Articles administration"
+#~ msgstr "Məqalələr administrasiyası"
+
+#~ msgid "Welcome to the Articles administration"
+#~ msgstr "Məqalələr administrasiyasına xoş gəldiniz"
+
+#~ msgid "Slug field"
+#~ msgstr "Kod sahəsi"
+
+#~ msgid "Name field"
+#~ msgstr "Ad sahəsi"
+
+#~ msgid "Species administration"
+#~ msgstr "Növlər administrasiyası"
+
+#~ msgid "Welcome to the Species administration"
+#~ msgstr "Növlər administrasiyasına xoş gəldiniz"

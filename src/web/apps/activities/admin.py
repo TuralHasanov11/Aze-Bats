@@ -1,15 +1,19 @@
-from apps.activities import models
+from apps.activities.models import Project, SiteVisit
 from django.contrib import admin
+from django.db import models
 from django.utils.translation import gettext_lazy as _
+from tinymce.widgets import TinyMCE
 
 
-@admin.register(models.Project)
+@admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'language', 'updated_at')
-    readonly_fields = ('created_at', 'updated_at', 'slug')
+    list_display = ("name", "language", "updated_at")
+    readonly_fields = ("created_at", "updated_at", "slug")
+    formfield_overrides = {models.TextField: {"widget": TinyMCE()}}
 
 
-@admin.register(models.SiteVisit)
+@admin.register(SiteVisit)
 class SiteVisitAdmin(admin.ModelAdmin):
-    list_display = ('name', 'language', 'updated_at')
-    readonly_fields = ('created_at', 'updated_at', 'slug')
+    list_display = ("name", "language", "updated_at")
+    readonly_fields = ("created_at", "updated_at", "slug")
+    formfield_overrides = {models.TextField: {"widget": TinyMCE()}}

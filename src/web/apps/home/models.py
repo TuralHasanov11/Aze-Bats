@@ -19,11 +19,11 @@ logger = logging.getLogger(__name__)
 
     
 class CarouselItem(models.Model):
-    title = models.CharField(max_length=200)
-    sub_title = models.CharField(max_length=200, blank=True, null=True)
-    image = models.ImageField(upload_to='carousel/')
-    description = models.TextField(blank=True, null=True)
-    order = models.PositiveIntegerField(default=0)
+    title = models.CharField(max_length=200, verbose_name=_('Title'))
+    sub_title = models.CharField(max_length=200, blank=True, null=True, verbose_name=_('Sub Title'))
+    image = models.ImageField(upload_to='carousel/', verbose_name=_('Image'))
+    description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
+    order = models.PositiveIntegerField(default=0, verbose_name=_('Order'))
 
     class Meta:
         ordering = ['order']
@@ -56,14 +56,10 @@ def convert_carousel_item_image_to_webp(sender, instance: CarouselItem, **kwargs
             logger.error("Error converting image to WebP for CarouselItem with id = %s: %s", instance.pk, e)
             raise e
 
-class StaticTextKey(Enum):
-    ABOUT = "about"
-    PRIVACY_POLICY = "privacy_policy"
 
-    @classmethod
-    def choices(cls):
-        return [(key.value, _(key.name.replace("_", " ").title())) for key in cls]
-
+class StaticTextKeys(models.TextChoices):
+    ABOUT = "about", _("About")
+    PRIVACY_POLICY = "privacy_policy", _("Privacy Policy")
 
 class StaticTextManager(models.Manager):
     def single(self, key, language="en") -> Optional[StaticText]:
@@ -71,9 +67,9 @@ class StaticTextManager(models.Manager):
 
 
 class StaticText(models.Model):
-    key = models.CharField(max_length=50, choices=StaticTextKey.choices())
+    key = models.CharField(max_length=50, choices=StaticTextKeys, verbose_name=_("Key"))
     language = LanguageField()
-    content = tinymce_models.HTMLField()
+    content = tinymce_models.HTMLField(verbose_name=_("Content"))
     
     entries = StaticTextManager()
     
