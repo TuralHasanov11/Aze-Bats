@@ -7,16 +7,9 @@
         <div class="row footer-widget-wrapper pt-100 pb-70">
           <div class="col-md-6 col-xl-4">
             <div class="footer-widget-box about-us">
-              <a href="#" class="footer-logo">
-                <img src="{% static 'base/img/logo/logo.png' %}" alt="" />
+              <a href="#" aria-label="{% translate 'Footer logo' %}" class="footer-logo">
+                <img loading="lazy" src="{% static 'base/img/logo/logo.png' %}" alt="{% translate 'Footer logo' %}" />
               </a>
-              <p class="mb-3">
-                {% blocktranslate %}
-                We are many variations of passages available but the majority
-                have suffered alteration in some form by injected humour words
-                believable.
-                {% endblocktranslate %}
-              </p>
               <ul class="footer-contact">
                 <li>
                   <a

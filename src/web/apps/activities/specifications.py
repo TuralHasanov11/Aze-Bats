@@ -30,6 +30,17 @@ class GetSiteVisitsSpecification(Specification):
         self.except_id = except_id
         return self
     
+class GetSiteVisitsByLanguageSpecification(Specification):
+    language: Optional[str]
+    
+    def __init__(self, language: Optional[str]):
+        self.language = language
+        
+    def handle(self, queryset: QuerySet[SiteVisit]) -> QuerySet[SiteVisit]:
+        if self.language:
+            queryset = queryset.filter(language=self.language)
+        return super().handle(queryset)
+    
 class GetSiteVisitBySlugSpecification(Specification):
     slug: str
     
@@ -46,7 +57,7 @@ class SearchProjectsSpecification(Specification):
     def __init__(self, search: str):
         self.search = search
 
-    def handle(self, queryset: QuerySet[SiteVisit]) -> QuerySet[SiteVisit]:
+    def handle(self, queryset: QuerySet[Project]) -> QuerySet[Project]:
         if self.search:
             queryset = queryset.filter(name__icontains=self.search)
         return super().handle(queryset)

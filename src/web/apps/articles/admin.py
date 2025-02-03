@@ -1,5 +1,6 @@
 from django.contrib import admin
 from apps.articles import models
+from django.utils.translation import gettext_lazy as _
 
 # Register your models here.
 @admin.register(models.Article)

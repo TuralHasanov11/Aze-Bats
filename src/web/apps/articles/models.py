@@ -3,6 +3,8 @@ from typing import Optional
 from django.db import models
 
 from apps.shared.models import NameField
+from apps.shared.specification import Specification
+from django.utils.translation import gettext_lazy as _
 
 
 class ArticleManager(models.Manager):
@@ -12,7 +14,9 @@ class ArticleManager(models.Manager):
     def get_by_id(self, id: int) -> Optional[Article]:
         return self.get_queryset().filter(id=id).first()
 
-    def list(self, language: Optional[str] = "") -> models.QuerySet[Article]:
+    def list(self, specification: Optional[Specification[Article]] = None) -> models.QuerySet[Article]:
+        if specification:
+            return specification.handle(self.get_queryset())
         return self.get_queryset().all()
 
 
@@ -27,6 +31,8 @@ class Article(models.Model):
 
     class Meta:
         ordering = ("-created_at",)
+        verbose_name = _("Article")
+        verbose_name_plural = _("Articles")
 
     def __str__(self):
         return self.name

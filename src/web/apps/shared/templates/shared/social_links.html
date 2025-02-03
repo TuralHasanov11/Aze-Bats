@@ -1,3 +1,3 @@
 {% for social_link in author.social_links %}
-<a href="{{social_link.url}}" target="_blank" rel="noreferrer"><i class="{{social_link.icon}}"></i></a>
+<a href="{{social_link.url}}" target="_blank" rel="noreferrer" aria-label="{{social_link.name}} {% translate 'link' %}"><i class="{{social_link.icon}}"></i></a>
 {% endfor %}

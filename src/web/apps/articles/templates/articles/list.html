@@ -1,27 +1,34 @@
-{% extends 'app.html' %} 
+{% extends 'shared/base_layout.html' %} 
 {% load i18n %} 
 {% load static %} 
 {% block title %}{% translate "Articles" %}{% endblock title %} 
 {% block content %}
 
-{% translate "Articles" as promo_title%}
+{% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
 
-{% with promo_image=article_promo_image.url %}
-{% include "components/promo.html" with promo_image=promo_image promo_title=promo_title %}
+{% with breadcrumb_title='Articles' %}
+  {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
-<section class="section no-padding-top">
-  <div class="container py-5">
+
+<div class="service-area py-120">
+  <div class="container">
     <div class="row">
-      <div class="col-xl-10">
-        <h4 class="elements__title">{{promo_title}}</h4>
-      </div>
-      {% for article in articles %}
-        {% include "components/article.html" with article=article %}
-      {% endfor %}
-      <div class="col-12 text-center">
-        {% include "components/pagination.html" with pagination=articles %}
+      <div class="col-lg-6 mx-auto">
+        <div class="site-heading text-center">
+          <span class="site-title-tagline">{% translate "Articles" %}</span>
+          <h2 class="site-title">{% translate "Articles" %}</h2>
+        </div>
       </div>
     </div>
+    <div class="row">
+      {% for article in articles %}
+      <div class="col-md-6 col-lg-3">
+        {% include "articles/components/article_list_item.html" with article=article %}
+      </div>
+      {% endfor %}
+    </div>
+
+    {% include "shared/pagination.html" with pagination=articles %}
   </div>
-</section>
+</div>
 {% endblock content %}

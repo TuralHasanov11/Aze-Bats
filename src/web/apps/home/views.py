@@ -1,22 +1,20 @@
-from dataclasses import dataclass
-from typing import Iterable, List
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
-from django.views import View
-from apps.shared.utils import BreadcrumbMenu
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-
 from apps.activities.models import Project, SiteVisit
-from apps.articles.models import Article
-from apps.home.forms import SearchForm
-from apps.species.models import Bat
-from apps.species.specifications import SearchBatsSpecification
 from apps.activities.specifications import (
     SearchProjectsSpecification,
     SearchSiteVisitsSpecification,
 )
+from apps.articles.models import Article
+from apps.articles.specifications import SearchArticlesSpecification
+from apps.home.forms import SearchForm
 from apps.home.models import CarouselItem
+from apps.shared.utils import BreadcrumbMenu
+from apps.species.models import Bat
+from apps.species.specifications import SearchBatsSpecification
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from django.views import View
 
 
 class HomeView(View):
@@ -29,7 +27,12 @@ class HomeView(View):
         return render(
             request,
             "home/home.html",
-            {"site_visits": site_visits, "projects": projects, "articles": articles, "carousel_items": carousel_items},
+            {
+                "site_visits": site_visits,
+                "projects": projects,
+                "articles": articles,
+                "carousel_items": carousel_items,
+            },
         )
 
 
@@ -68,11 +71,19 @@ class SearchView(View):
             projects = Project.entries.list(SearchProjectsSpecification(search=search))[
                 :10
             ]
+            articles = Article.entries.list(SearchArticlesSpecification(search=search))[
+                :10
+            ]
 
             return render(
                 request,
                 "home/search.html",
-                {"bats": bats, "site_visits": site_visits, "projects": projects},
+                {
+                    "bats": bats,
+                    "site_visits": site_visits,
+                    "projects": projects,
+                    "articles": articles,
+                },
             )
 
         return render(request, "home/search.html")

@@ -12,11 +12,11 @@ logger = logging.getLogger(__name__)
 
 class ArticleListView(View):
     http_method_names = ["get"]
-    paginate_by = 10
+    paginate_by = 24
 
     def get(self, request: HttpRequest):
         page = int(request.GET.get("page", 1))
         articles = Paginator(
-            Article.entries.list(get_language()), self.paginate_by
+            Article.entries.list(), self.paginate_by
         ).get_page(page)
         return render(request, "articles/list.html", {"articles": articles})

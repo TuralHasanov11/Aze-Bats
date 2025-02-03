@@ -22,11 +22,11 @@ urlpatterns = i18n_patterns(
     path("species/", include("apps.species.urls", namespace="apps.species")),
     path("activities/", include("apps.activities.urls", namespace="apps.activities")),
     path("articles/", include("apps.articles.urls", namespace="apps.articles")),
+    path('admin/', admin.site.urls),
     prefix_default_language=False,
 )
 
 urlpatterns += [
-    path('admin/', admin.site.urls),
     path("logs/", include("log_viewer.urls")),
     path('tinymce/', include('tinymce.urls')),
     path(

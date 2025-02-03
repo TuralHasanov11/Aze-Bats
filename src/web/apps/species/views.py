@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 class BatListView(View):
     http_method_names = ["get"]
-    paginate_by = 10
+    paginate_by = 24
 
     def get(self, request: HttpRequest) -> HttpResponse:
         page = int(request.GET.get("page", 1))

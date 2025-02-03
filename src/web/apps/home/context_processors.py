@@ -90,6 +90,7 @@ def base_menu(request: HttpRequest) -> Dict[str, List[MenuItem]]:
             route=reverse("apps.species:list"),
             submenu=family_menu_items,
         ),
+        MenuItem(name=_("Articles"), route=reverse("apps.articles:list")),
     ]
 
     return {

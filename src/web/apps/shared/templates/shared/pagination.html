@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load pagination_query_transform %}
+
+{% if pagination.paginator.num_pages > 1 %}
+<div class="pagination-area">
+    <div aria-label="{% translate 'Pagination' %}">
+      <ul class="pagination">
+        {% if pagination.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?{% pagination_query_transform page=pagination.previous_page_number %}" aria-label="{% translate 'Previous' %}">
+              <span aria-hidden="true"
+                ><i class="far fa-chevron-left"></i
+              ></span>
+            </a>
+        </li>
+        {% endif %}
+
+        {% for num in pagination.paginator.page_range %}
+            {% if num > pagination.number|add:-3 and num < pagination.number|add:3 or num == pagination.paginator.num_pages or num == 1 %}
+            <li class="page-item {% if num == pagination.number %}active{% endif %}">
+                <a class="page-link" href="?{% pagination_query_transform page=num %}">{{num}}</a>
+            </li>
+            {% elif num > pagination.number|add:-4 and num < pagination.number|add:4 %}
+            <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">...</a>
+            </li>
+            {% endif %} 
+        {% endfor %}
+        
+        {% if pagination.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?{% pagination_query_transform page=pagination.next_page_number %}" aria-label="{% translate 'Next' %}">
+              <span aria-hidden="true"
+                ><i class="far fa-chevron-right"></i
+              ></span>
+            </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

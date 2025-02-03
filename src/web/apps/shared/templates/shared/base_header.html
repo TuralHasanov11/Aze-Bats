@@ -62,11 +62,11 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="{% url 'apps.home:home' %}">
-          <img src="{% static 'base/img/logo/logo.png' %}" alt="logo" />
+          <img src="{% static 'base/img/logo/logo.png' %}" alt="{% translate 'logo' %}" />
         </a>
         <div class="mobile-menu-right">
           <div class="mobile-menu-list">
-            <a href="#" class="mobile-menu-link search-box-outer"
+            <a href="#" aria-label="{% translate 'Open search-box button' %}" class="mobile-menu-link search-box-outer"
               ><i class="far fa-search"></i
             ></a>
           </div>

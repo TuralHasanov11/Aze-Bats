@@ -7,7 +7,7 @@
       <div class="col-md-4">
         <div class="gallery-item">
           <div class="gallery-img">
-            <img src="{% if bat_image.image %}{{bat_image.image.url}}{% endif %}" alt="{{bat.name}} {% translate "image" %}" />
+            <img loading="lazy" src="{% if bat_image.image %}{{bat_image.image.url}}{% endif %}" alt="{{bat.name}} {% translate "image" %}" />
           </div>
           <div class="gallery-content">
             <a
