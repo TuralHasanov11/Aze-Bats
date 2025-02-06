@@ -62,7 +62,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # "csp.middleware.CSPMiddleware",
-    "axes.middleware.AxesMiddleware",  # should be last
+    "axes.middleware.AxesMiddleware",
+    "maintenance_mode.middleware.MaintenanceModeMiddleware"
 ]
 
 ROOT_URLCONF = "web.urls"
@@ -70,7 +71,7 @@ ROOT_URLCONF = "web.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "apps/shared/templates"],
+        "DIRS": [BASE_DIR / "apps/shared/templates/shared"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -202,7 +203,9 @@ EMAIL_USE_LOCALTIME = config("EMAIL_USE_LOCALTIME", cast=bool, default=True)
 
 MAINTENANCE_MODE = config("MAINTENANCE_MODE", cast=bool, default=False)
 MAINTENANCE_BYPASS_QUERY = config("MAINTENANCE_BYPASS_QUERY", default="bypass")
-
+MAINTENANCE_MODE_IGNORE_ADMIN_SITE = True
+MAINTENANCE_MODE_IGNORE_STAFF = True
+MAINTENANCE_MODE_IGNORE_SUPERUSER = True
 
 CSP_DEFAULT_SRC = ("'self'", )
 CSP_CONNECT_SRC = ("'self'", )

@@ -36,6 +36,7 @@ urlpatterns += [
         name="django.contrib.sitemaps.views.sitemap",
     ),
     re_path(r"^languages/", include("rosetta.urls")),
+    re_path(r"^maintenance-mode/", include("maintenance_mode.urls")),
 ]
 
 if settings.DEBUG:
