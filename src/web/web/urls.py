@@ -35,11 +35,12 @@ urlpatterns += [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    re_path(r"^languages/", include("rosetta.urls")),
     re_path(r"^maintenance-mode/", include("maintenance_mode.urls")),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    if "rosetta" in settings.INSTALLED_APPS:
+        urlpatterns += [re_path(r"^languages/", include("rosetta.urls"))]
     

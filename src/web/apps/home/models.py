@@ -1,8 +1,8 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from enum import Enum
 from io import BytesIO
 from typing import Collection, Optional
+import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from tinymce import models as tinymce_models
@@ -17,11 +17,13 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-    
+def upload_carousel_item_image_to_func(instance: models.Model, filename: str) -> str:
+    return f"carousel/{uuid.uuid4()}-{filename}"
+
 class CarouselItem(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Title'))
     sub_title = models.CharField(max_length=200, blank=True, null=True, verbose_name=_('Sub Title'))
-    image = models.ImageField(upload_to='carousel/', verbose_name=_('Image'))
+    image = models.ImageField(upload_to=upload_carousel_item_image_to_func, verbose_name=_('Image'))
     description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
     order = models.PositiveIntegerField(default=0, verbose_name=_('Order'))
     language = LanguageField()
@@ -80,7 +82,7 @@ class StaticText(models.Model):
         verbose_name_plural = _("Static Texts")
 
     def __str__(self):
-        return f"{self.key} ({self.language})"
+        return f"{StaticTextKeys(self.key).label} ({self.language})"
 
 
 @dataclass

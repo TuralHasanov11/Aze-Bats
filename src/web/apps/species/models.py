@@ -151,6 +151,10 @@ class BatAttribute(models.Model):
     bat = models.ForeignKey(Bat, related_name="attributes", on_delete=models.CASCADE, verbose_name=_("Bat"))
     description = tinymce_models.HTMLField(verbose_name=_("Description"))
     language = LanguageField()
+    
+    class Meta:
+        verbose_name = _("Bat Attribute")
+        verbose_name_plural = _("Bat Attributes")
 
 def upload_bat_image_to_func(instance: models.Model, filename: str) -> str:
     if isinstance(instance, BatImage):
@@ -163,3 +167,7 @@ class BatImage(models.Model):
 
     def __str__(self):
         return self.image.url
+    
+    class Meta:
+        verbose_name = _("Bat Image")
+        verbose_name_plural = _("Bat Images")

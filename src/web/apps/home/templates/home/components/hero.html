@@ -2,54 +2,51 @@
 {% load shared_extras %}
 
 <div class="hero-section">
-    <div class="hero-slider2 owl-carousel owl-theme">
-      {% for item in carousel_items %}
-      <div
-        class="hero-single"
-        style="background: url({% if item.image %}{{item.image.url}}{% endif %}) no-repeat center center / cover"
-      >
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-7 col-lg-7">
-              <div class="hero-content">
-                <h6
-                  class="hero-sub-title wow animate__animated animate__fadeInUp"
-                  data-wow-duration="1s"
-                  data-wow-delay=".25s"
-                >
-                  {{item.sub_title}}
-                </h6>
-                <h1
-                  class="hero-title wow animate__animated animate__fadeInUp"
-                  data-wow-duration="1s"
-                  data-wow-delay=".50s"
-                >
-                  {{item.title}}
-                </h1>
-                <p
-                  class="wow animate__animated animate__fadeInUp"
-                  data-wow-duration="1s"
-                  data-wow-delay=".75s"
-                >
-                  {{item.description}}
-                </p>
-                <div
-                  class="hero-btn wow animate__animated animate__fadeInUp"
-                  data-wow-duration="1s"
-                  data-wow-delay="1s"
-                >
-                  <a href="{% url 'apps.species:list' %}" class="theme-btn"
-                    >{% translate "Learn More" %}<i class="far fa-arrow-right"></i
-                  ></a>
-                </div>
+  <div class="hero-slider2 owl-carousel owl-theme">
+    {% for item in carousel_items %}
+    <div
+      class="hero-single"
+      style="background: url({% if item.image %}{{item.image.url}}{% endif %}) no-repeat center center / cover"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-7 col-lg-7">
+            <div class="hero-content">
+              <h6
+                class="hero-sub-title wow animate__animated animate__fadeInUp"
+                data-wow-duration="1s"
+                data-wow-delay=".25s"
+              >
+                {{item.sub_title}}
+              </h6>
+              <h1
+                class="hero-title wow animate__animated animate__fadeInUp"
+                data-wow-duration="1s"
+                data-wow-delay=".50s"
+              >
+                {{item.title}}
+              </h1>
+              <p
+                class="wow animate__animated animate__fadeInUp"
+                data-wow-duration="1s"
+                data-wow-delay=".75s"
+              >
+                {{item.description}}
+              </p>
+              <div
+                class="hero-btn wow animate__animated animate__fadeInUp"
+                data-wow-duration="1s"
+                data-wow-delay="1s"
+              >
+                <a href="{% url 'apps.species:list' %}" class="theme-btn"
+                  >{% translate "Learn More" %}<i class="far fa-arrow-right"></i
+                ></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {% endfor %}
-
-      
-
     </div>
+    {% endfor %}
   </div>
+</div>

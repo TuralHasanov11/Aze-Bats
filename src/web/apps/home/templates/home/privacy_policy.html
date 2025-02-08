@@ -19,7 +19,10 @@
       <div class="col">
         <div class="terms-content">
           <h3>{% translate "Privacy Policy" %}</h3>
-          <p>{% get_static_text 'privacy_policy' CURRENT_LANGUAGE %}</p>
+          <p>
+            {% get_static_text 'privacy_policy' CURRENT_LANGUAGE as privacy_policy %}
+            {{ privacy_policy|safe }}
+          </p>
         </div>
       </div>
     </div>

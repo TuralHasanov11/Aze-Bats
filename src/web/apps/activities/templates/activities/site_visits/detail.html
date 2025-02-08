@@ -4,7 +4,6 @@
 {% block title %}{{site_visit.name}}{% endblock title %}
 {% block meta_description %} {{site_visit.name}} {% endblock meta_description %} 
 
-
 {% block content %}
 
 
@@ -17,7 +16,7 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="event-details">
-          <img src="{% if site_visit.cover_image %}{{site_visit.cover_image.url}}{% endif %}" alt="" />
+          <img loading="lazy" src="{% if site_visit.cover_image %}{{site_visit.cover_image.url}}{% endif %}" alt="{{site_visit.name}} {% translate 'cover image' %}" />
           <div class="my-4">
             <h3 class="mb-2">{{site_visit.name}}</h3>
             {{site_visit.description|safe}}
@@ -28,9 +27,7 @@
       <div class="col-lg-4">
         <aside class="sidebar">
           {% include "activities/components/search.html" with search_form=search_form %}
-
           {% include "activities/site_visits/recent_site_visit_list.html" with recent_site_visits=recent_site_visits %}
-
           {% include "activities/components/social_share.html" %}
         </aside>
       </div>

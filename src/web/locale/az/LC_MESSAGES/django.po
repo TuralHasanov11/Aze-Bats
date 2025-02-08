@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 18:43+0100\n"
-"PO-Revision-Date: 2025-02-03 18:41+0400\n"
+"POT-Creation-Date: 2025-02-08 13:18+0100\n"
+"PO-Revision-Date: 2025-02-08 13:26+0400\n"
 "Last-Translator:   <superuser@test.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
 #: .\apps\activities\models.py:49 .\apps\activities\models.py:113
-#: .\apps\species\models.py:119 .\apps\species\models.py:162
+#: .\apps\species\models.py:119 .\apps\species\models.py:166
 msgid "Cover Image"
 msgstr "Başlıq Şəkli"
 
@@ -65,7 +65,7 @@ msgid "Site Visits"
 msgstr "Sahə Səyahətləri"
 
 #: .\apps\activities\templates\activities\author.html:8
-#: .\apps\home\templates\home\components\author_list.html:17
+#: .\apps\home\templates\home\components\author_list.html:19
 msgid "profile image"
 msgstr "profil şəkli"
 
@@ -82,6 +82,13 @@ msgstr "Axtar"
 #: .\apps\activities\templates\activities\components\social_share.html:4
 msgid "Follow Us"
 msgstr "Bizi İzləyin"
+
+#: .\apps\activities\templates\activities\projects\detail.html:21
+#: .\apps\activities\templates\activities\site_visits\detail.html:19
+#: .\apps\species\templates\species\components\bat_list_item.html:6
+#: .\apps\species\templates\species\detail.html:36
+msgid "cover image"
+msgstr "başlıq şəkli"
 
 #: .\apps\activities\templates\activities\projects\list.html:5
 msgid "Projects Meta Description"
@@ -134,7 +141,7 @@ msgstr "Məqalə"
 #: .\apps\articles\templates\articles\list.html:20
 #: .\apps\articles\templates\articles\list.html:21
 #: .\apps\home\context_processors.py:94
-#: .\apps\home\templates\home\components\article_list.html:9
+#: .\apps\home\templates\home\components\article_list.html:8
 msgid "Articles"
 msgstr "Məqalələr"
 
@@ -162,8 +169,10 @@ msgstr "Bütün"
 msgid "Home"
 msgstr "Ana Səhifə"
 
-#: .\apps\home\context_processors.py:75 .\apps\home\templates\home\about.html:5
-#: .\apps\home\templates\home\about.html:33 .\apps\home\views.py:44
+#: .\apps\home\context_processors.py:75
+#: .\apps\home\templates\home\about.html:5
+#: .\apps\home\templates\home\about.html:26
+#: .\apps\home\templates\home\about.html:34 .\apps\home\views.py:44
 #: .\apps\shared\templates\shared\base_footer.html:31
 msgid "About Us"
 msgstr "Haqqımızda"
@@ -198,11 +207,11 @@ msgstr "Sıra"
 
 #: .\apps\home\models.py:31
 msgid "Carousel Item"
-msgstr "Karusel "
+msgstr "Karusel Bəndi"
 
 #: .\apps\home\models.py:32
 msgid "Carousel Items"
-msgstr "Karusel "
+msgstr "Karusel Bəndləri"
 
 #: .\apps\home\models.py:62
 msgid "About"
@@ -235,11 +244,16 @@ msgstr ""
 "Yarasa tədqiqatlarını irəlilətmək missiyamız haqqında məlumat alın. Yarasa "
 "növlərinin tədqiqi ilə məşğul olan müəlliflərimizlə tanış olun."
 
-#: .\apps\home\templates\home\about.html:42
+#: .\apps\home\templates\home\about.html:26
+#: .\apps\species\templates\species\components\bat_gallery.html:10
+msgid "image"
+msgstr "şəkil"
+
+#: .\apps\home\templates\home\about.html:41
 msgid "Discover More"
 msgstr "Daha Çox Kəşf Et"
 
-#: .\apps\home\templates\home\components\article_list.html:10
+#: .\apps\home\templates\home\components\article_list.html:9
 msgid "Our Recent Articles"
 msgstr "Ən Yeni Məqalələrimiz"
 
@@ -263,19 +277,19 @@ msgstr "Ailə ikonu"
 msgid "Total Families"
 msgstr "Toplam Ailələr"
 
-#: .\apps\home\templates\home\components\species_counter.html:28
+#: .\apps\home\templates\home\components\species_counter.html:29
 msgid "Genus icon"
 msgstr "Gen ikonu"
 
-#: .\apps\home\templates\home\components\species_counter.html:38
+#: .\apps\home\templates\home\components\species_counter.html:39
 msgid "Total Genuses"
 msgstr "Toplam Genlər"
 
-#: .\apps\home\templates\home\components\species_counter.html:46
+#: .\apps\home\templates\home\components\species_counter.html:48
 msgid "Bat icon"
 msgstr "Yarasa ikonu"
 
-#: .\apps\home\templates\home\components\species_counter.html:56
+#: .\apps\home\templates\home\components\species_counter.html:58
 msgid "Total Bats"
 msgstr "Toplam Yarasalar"
 
@@ -285,19 +299,6 @@ msgstr ""
 "Yarasaların maraqlı dünyasını kəşf edin! Bu vacib canlıları daha yaxşı "
 "anlamaq və qorumaq üçün tədqiqatlarımızı, məqalələrimizi və mühafizə "
 "səylərimizi araşdırın."
-
-#: .\apps\home\templates\home\not_found.html:5
-msgid "Not Found"
-msgstr "Mövcud Deyil"
-
-#: .\apps\home\templates\home\not_found.html:19
-msgid "Page Not Found"
-msgstr "Səhifə Mövcud Deyil"
-
-#: .\apps\home\templates\home\not_found.html:24
-#: .\apps\home\templates\home\search.html:88
-msgid "Go Back Home"
-msgstr "Ana Səhifəyə Get"
 
 #: .\apps\home\templates\home\privacy_policy.html:6
 msgid "Privacy Policy Meta Description"
@@ -317,17 +318,62 @@ msgstr ""
 msgid "No Entry Found"
 msgstr "Məlumat Mövcud Deyil"
 
+#: .\apps\home\templates\home\search.html:88
+#: .\apps\shared\templates\shared\400.html:21
+#: .\apps\shared\templates\shared\404.html:24
+msgid "Go Back Home"
+msgstr "Ana Səhifəyə Get"
+
 #: .\apps\shared\models.py:6 .\apps\shared\models.py:7
 msgid "Language"
 msgstr "Dil"
 
 #: .\apps\shared\models.py:17 .\apps\shared\models.py:18
 msgid "Slug"
-msgstr ""
+msgstr "Açar söz"
 
 #: .\apps\shared\models.py:29 .\apps\shared\models.py:30
 msgid "Name"
 msgstr "Ad"
+
+#: .\apps\shared\templates\shared\400.html:5
+#: .\apps\shared\templates\shared\400.html:19
+msgid "Suspicious Operation"
+msgstr "Şübhəli Əməliyyat"
+
+#: .\apps\shared\templates\shared\404.html:5
+msgid "Not Found"
+msgstr "Mövcud Deyil"
+
+#: .\apps\shared\templates\shared\404.html:19
+msgid "Page Not Found"
+msgstr "Səhifə Mövcud Deyil"
+
+#: .\apps\shared\templates\shared\500.html:31
+msgid "Server Error"
+msgstr "Server Xətası"
+
+#: .\apps\shared\templates\shared\500.html:33
+msgid ""
+"\n"
+"                Server Error. Please check back later.\n"
+"                "
+msgstr ""
+"\n"
+"Server Xətası. Zəhmət olmasa daha sonra yoxlayın."
+
+#: .\apps\shared\templates\shared\503.html:31
+msgid "Site is under maintenance"
+msgstr "Saytda baxım işləri görülür"
+
+#: .\apps\shared\templates\shared\503.html:33
+msgid ""
+"\n"
+"                Site is under maintenance. Please check back later.\n"
+"                "
+msgstr ""
+"\n"
+"Saytda baxım işləri görülür. Zəhmət olmasa daha sonra yoxlayın."
 
 #: .\apps\shared\templates\shared\base_footer.html:10
 #: .\apps\shared\templates\shared\base_footer.html:11
@@ -398,17 +444,27 @@ msgid "Is in Red List"
 msgstr "Qırmızı Kitabdadır"
 
 #: .\apps\species\models.py:129 .\apps\species\models.py:151
-#: .\apps\species\models.py:161
+#: .\apps\species\models.py:165
 msgid "Bat"
 msgstr "Yarasa"
 
-#: .\apps\species\templates\species\components\bat_gallery.html:10
-msgid "image"
-msgstr "şəkil"
+#: .\apps\species\models.py:156
+msgid "Bat Attribute"
+msgstr "Yarasa Atributu"
 
-#: .\apps\species\templates\species\components\bat_list_item.html:6
-msgid "cover image"
-msgstr "başlıq şəkli"
+#: .\apps\species\models.py:157
+msgid "Bat Attributes"
+msgstr "Yarasa Atributları"
+
+#: .\apps\species\models.py:172
+#| msgid "Image"
+msgid "Bat Image"
+msgstr "Yarasa Şəkli"
+
+#: .\apps\species\models.py:173
+#| msgid "Image"
+msgid "Bat Images"
+msgstr "Yarasa Şəkilləri"
 
 #: .\apps\species\templates\species\list.html:5
 msgid "Bats Meta Description"
@@ -416,13 +472,22 @@ msgstr ""
 "Yarasaların biologiyası, davranışı və ekoloji əhəmiyyəti haqqında "
 "tədqiqatlarımız vasitəsilə məlumat əldə edin."
 
-#: .\web\settings.py:161
+#: .\web\settings.py:162
 msgid "Azerbaijani"
 msgstr "Azərbaycanca"
 
-#: .\web\settings.py:162
+#: .\web\settings.py:163
 msgid "English"
 msgstr "İngiliscə"
+
+#, fuzzy
+#~ msgid ""
+#~ "\n"
+#~ "              Get closer to wonders of bats\n"
+#~ "              "
+#~ msgstr ""
+#~ "\n"
+#~ "Server Xətası. Zəhmət olmasa daha sonra yoxlayın."
 
 #~ msgid "Activities administration"
 #~ msgstr "Fəaliyyətlər administrasiyası"

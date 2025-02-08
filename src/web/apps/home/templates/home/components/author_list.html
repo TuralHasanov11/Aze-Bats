@@ -7,14 +7,17 @@
         <div class="site-heading text-center">
           <span class="site-title-tagline">{% translate "Authority" %}</span>
           <h2 class="site-title">{% translate "Meet Our Authority" %}</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="team-item">
-          <img src="{{author.profile_image}}" loading="lazy" alt="{{author.name}} {% translate 'profile image' %}" />
+          <img
+            src="{{author.profile_image}}"
+            loading="lazy"
+            alt="{{author.name}} {% translate 'profile image' %}"
+          />
           <div class="team-social">
             {% include "shared/social_links.html" with social_links=author.social_links %}
           </div>

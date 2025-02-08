@@ -15,6 +15,6 @@
         <i class="far fa-clock"></i> {{ site_visit.created_at|date:"d F, Y" }}
       </li>
     </ul>
-    <p>{{site_visit.description|truncatewords:20}}</p>
+    <p>{{site_visit.description|safe|truncatewords:20}}</p>
   </div>
 </div>

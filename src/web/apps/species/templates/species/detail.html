@@ -33,7 +33,7 @@
             <div class="animal-details-img mb-30">
               <img
                 src="{% if bat.cover_image %}{{bat.cover_image.url}}{% endif %}"
-                alt="{{bat.name}} thumb"
+                alt="{{bat.name}} {% translate 'cover image' %}"
               />
             </div>
             <div class="animal-details">

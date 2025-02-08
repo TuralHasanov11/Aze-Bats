@@ -144,8 +144,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_URL = "administration:login"
-LOGIN_REDIRECT_URL = "administration:dashboard"
+LOGIN_URL = "/admin/login/"
+LOGIN_REDIRECT_URL = "/admin/"
 
 
 TIME_ZONE = "Asia/Baku"
@@ -225,7 +225,7 @@ MESSAGE_TAGS = {
 
 
 LOG_DIR = BASE_DIR / "logs"
-LOG_FILE = "/main.log"
+LOG_FILE = "/info.log"
 LOG_PATH = f"{LOG_DIR}/{LOG_FILE}"
 if not os.path.exists(LOG_DIR):
     os.mkdir(LOG_DIR)
@@ -283,27 +283,27 @@ LOGGING = {
         },
         "django.server": DEFAULT_LOGGING["loggers"]["django.server"],
         "apps.home": {
-            "handlers": ["file"],
+            "handlers": DEBUG and ["file", "console"] or ["file"],
             "propagate": False,
             "level": LOGLEVEL,
         },
         "apps.activities": {
-            "handlers": ["file"],
+            "handlers": DEBUG and ["file", "console"] or ["file"],
             "propagate": False,
             "level": LOGLEVEL,
         },
         "apps.articles": {
-            "handlers": ["file"],
+            "handlers": DEBUG and ["file", "console"] or ["file"],
             "propagate": False,
             "level": LOGLEVEL,
         },
         "apps.species": {
-            "handlers": ["file"],
+            "handlers": DEBUG and ["file", "console"] or ["file"],
             "propagate": False,
             "level": LOGLEVEL,
         },
         "apps.shared": {
-            "handlers": ["file"],
+            "handlers": DEBUG and ["file", "console"] or ["file"],
             "propagate": False,
             "level": LOGLEVEL,
         },

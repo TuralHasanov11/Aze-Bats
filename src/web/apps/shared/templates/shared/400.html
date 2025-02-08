@@ -1,0 +1,28 @@
+{% extends 'shared/base_layout.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% load static_texts %}
+{% block title %} {% translate "Suspicious Operation" %}{% endblock title %} 
+
+{% block content %}
+
+{% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
+
+{% with breadcrumb_title='Suspicious Operation' %}
+  {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
+{% endwith %}
+
+<div class="error-area py-120">
+  <div class="container">
+    <div class="col-md-6 mx-auto">
+      <div class="error-wrapper">
+        <h2>{% translate "Suspicious Operation" %}!</h2>
+        <a href="{% url 'apps.home:home' %}" class="theme-btn"
+          >{% translate "Go Back Home" %} <i class="far fa-home"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

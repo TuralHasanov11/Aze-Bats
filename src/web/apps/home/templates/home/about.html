@@ -20,9 +20,10 @@
         <div class="about-left">
           <div class="about-img">
             <img
+              loading="lazy"
               class="about-img-1"
               src="{% static 'base/img/about/01.png' %}"
-              alt=""
+              alt="{% translate 'About Us' %} {% translate 'image' %}"
             />
           </div>
         </div>
@@ -31,12 +32,10 @@
         <div class="about-right">
           <div class="site-heading mb-3">
             <span class="site-title-tagline">{% translate "About Us" %}</span>
-            <h2 class="site-title">
-              Get closer to wonders of the natural world
-            </h2>
           </div>
           <p class="about-text">
-            {% get_static_text 'about' CURRENT_LANGUAGE %}
+            {% get_static_text 'about' CURRENT_LANGUAGE as about %}
+            {{ about|safe }}
           </p>
           <a href="{% url 'apps.species:list' %}" class="theme-btn mt-4"
             >{% translate "Discover More" %} <i class="far fa-arrow-right"></i
