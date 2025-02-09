@@ -78,8 +78,8 @@ def base_menu(request: HttpRequest) -> Dict[str, List[MenuItem]]:
             route="#",
             submenu=[
                 MenuItem(
-                    name=_("Site Visits"),
-                    route=reverse("apps.activities:site-visit-list"),
+                    name=_("Field Trips"),
+                    route=reverse("apps.activities:field-trip-list"),
                 ),
                 MenuItem(
                     name=_("Projects"), route=reverse("apps.activities:project-list")
@@ -87,11 +87,11 @@ def base_menu(request: HttpRequest) -> Dict[str, List[MenuItem]]:
             ],
         ),
         MenuItem(
-            name=_("Bats"),
+            name=_("Species"),
             route=reverse("apps.species:list"),
             submenu=family_menu_items,
         ),
-        MenuItem(name=_("Articles"), route=reverse("apps.articles:list")),
+        MenuItem(name=_("Publications"), route=reverse("apps.articles:list")),
     ]
 
     return {

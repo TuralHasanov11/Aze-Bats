@@ -126,8 +126,8 @@ class Bat(models.Model):
 
     class Meta:
         ordering = ("name",)
-        verbose_name = _("Bat")
-        verbose_name_plural = _("Bats")
+        verbose_name = _("Species")
+        verbose_name_plural = _("Species")
 
     def __str__(self):
         return self.name
@@ -153,8 +153,8 @@ class BatAttribute(models.Model):
     language = LanguageField()
     
     class Meta:
-        verbose_name = _("Bat Attribute")
-        verbose_name_plural = _("Bat Attributes")
+        verbose_name = _("Species Attribute")
+        verbose_name_plural = _("Species Attributes")
 
 def upload_bat_image_to_func(instance: models.Model, filename: str) -> str:
     if isinstance(instance, BatImage):
@@ -162,12 +162,12 @@ def upload_bat_image_to_func(instance: models.Model, filename: str) -> str:
     raise ValueError("Invalid instance type for upload_bat_image_to_func")
 
 class BatImage(models.Model):
-    bat = models.ForeignKey(Bat, on_delete=models.CASCADE, related_name="images", verbose_name=_("Bat"))
+    bat = models.ForeignKey(Bat, on_delete=models.CASCADE, related_name="images", verbose_name=_("Species"))
     image = models.ImageField(upload_to=upload_bat_image_to_func, verbose_name=_("Cover Image"))
 
     def __str__(self):
         return self.image.url
     
     class Meta:
-        verbose_name = _("Bat Image")
-        verbose_name_plural = _("Bat Images")
+        verbose_name = _("Species Image")
+        verbose_name_plural = _("Species Images")

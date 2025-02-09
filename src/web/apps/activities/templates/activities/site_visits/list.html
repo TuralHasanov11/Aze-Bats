@@ -1,14 +1,14 @@
 {% extends 'shared/base_layout.html' %} 
 {% load static %} 
 {% load i18n %} 
-{% block title %}{% translate "Site Visits" %}{% endblock title %}
-{% block meta_description %} {% translate "Site Visits Meta Description" %} {% endblock meta_description %} 
+{% block title %}{% translate "Field Trips" %}{% endblock title %}
+{% block meta_description %} {% translate "Field Trips Meta Description" %} {% endblock meta_description %} 
 
 {% block content %}
 
 {% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
 
-{% with breadcrumb_title='Site Visits' %}
+{% with breadcrumb_title='Field Trips' %}
   {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %}
 {% endwith %}
 

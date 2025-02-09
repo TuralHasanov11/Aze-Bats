@@ -8,10 +8,10 @@ urlpatterns = [
     path(
         "projects/<str:slug>", views.ProjectDetailView.as_view(), name="project-detail"
     ),
-    path("site-visits", views.SiteVisitListView.as_view(), name="site-visit-list"),
+    path("field-trips", views.SiteVisitListView.as_view(), name="field-trip-list"),
     path(
-        "site-visits/<str:slug>",
+        "field-trips/<str:slug>",
         views.SiteVisitDetailView.as_view(),
-        name="site-visit-detail",
+        name="field-trip-detail",
     ),
 ]

@@ -331,7 +331,7 @@ AXES_LOCKOUT_PARAMETERS = [["username", "user_agent"]]
 X_FRAME_OPTIONS = "ALLOW-FROM https://www.youtube.com/"
 
 
-APP_NAME = os.environ.get("APP_NAME", "Bats of Azerbaijan")
+APP_NAME = os.environ.get("APP_NAME", "AzeriBats")
 
 
 TINYMCE_DEFAULT_CONFIG = {

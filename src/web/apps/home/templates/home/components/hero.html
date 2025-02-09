@@ -17,21 +17,21 @@
                 data-wow-duration="1s"
                 data-wow-delay=".25s"
               >
-                {{item.sub_title}}
+                {{item.sub_title|default:''}}
               </h6>
               <h1
                 class="hero-title wow animate__animated animate__fadeInUp"
                 data-wow-duration="1s"
                 data-wow-delay=".50s"
               >
-                {{item.title}}
+                {{item.title|default:''}}
               </h1>
               <p
                 class="wow animate__animated animate__fadeInUp"
                 data-wow-duration="1s"
                 data-wow-delay=".75s"
               >
-                {{item.description}}
+                {{item.description|default:''}}
               </p>
               <div
                 class="hero-btn wow animate__animated animate__fadeInUp"

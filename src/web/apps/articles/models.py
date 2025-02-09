@@ -31,8 +31,8 @@ class Article(models.Model):
 
     class Meta:
         ordering = ("-created_at",)
-        verbose_name = _("Article")
-        verbose_name_plural = _("Articles")
+        verbose_name = _("Publication")
+        verbose_name_plural = _("Publications")
 
     def __str__(self):
         return self.name

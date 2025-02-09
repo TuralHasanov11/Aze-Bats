@@ -1,14 +1,14 @@
 {% extends 'shared/base_layout.html' %} 
 {% load static %} 
 {% load i18n %} 
-{% block title %}{% translate "Bats" %}{% endblock title %} 
-{% block meta_description %} {% translate "Bats Meta Description" %} {% endblock meta_description %} 
+{% block title %}{% translate "Species" %}{% endblock title %} 
+{% block meta_description %} {% translate "Species Meta Description" %} {% endblock meta_description %} 
 
 {% block content %}
 
 {% static "base/img/breadcrumb/01.jpg" as breadcrumb_image %}
 
-{% with breadcrumb_title='Bats' %}
+{% with breadcrumb_title='Species' %}
 {% include "shared/breadcrumb.html" with breadcrumb_menu=breadcrumb_menu breadcrumb_title=breadcrumb_title breadcrumb_image=breadcrumb_image %} 
 {% endwith %}
 
@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-lg-6 mx-auto">
         <div class="site-heading text-center">
-          <h2 class="site-title">{% translate "Bats" %}</h2>
+          <h2 class="site-title">{% translate "Species" %}</h2>
         </div>
       </div>
     </div>

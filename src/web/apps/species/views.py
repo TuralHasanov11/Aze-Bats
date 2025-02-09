@@ -26,7 +26,7 @@ class BatListView(View):
         
         breadcrumb_menu: BreadcrumbMenu = [
             {"name": _("Home"), "url": reverse("apps.home:home")},
-            {"name": _("Bats"), "url": reverse("apps.species:list")},
+            {"name": _("Species"), "url": reverse("apps.species:list")},
         ]
 
         return render(request, "species/list.html", {"bats": bats, "breadcrumb_menu": breadcrumb_menu})
@@ -44,7 +44,7 @@ class BatDetailView(View):
         
         breadcrumb_menu: BreadcrumbMenu = [
             {"name": _("Home"), "url": reverse("apps.home:home")},
-            {"name": _("Bats"), "url": reverse("apps.species:list")},
+            {"name": _("Species"), "url": reverse("apps.species:list")},
             {"name": bat.name, "url": bat.get_absolute_url()},
         ]
 

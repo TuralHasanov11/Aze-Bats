@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-08 13:18+0100\n"
+"POT-Creation-Date: 2025-02-09 19:00+0100\n"
 "PO-Revision-Date: 2025-02-03 18:42+0400\n"
 "Last-Translator:   <superuser@test.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,13 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
+#: .\apps\activities\apps.py:8 .\apps\home\context_processors.py:77
+msgid "Activities"
+msgstr ""
+
 #: .\apps\activities\models.py:49 .\apps\activities\models.py:113
 #: .\apps\species\models.py:119 .\apps\species\models.py:166
 msgid "Cover Image"
 msgstr ""
 
 #: .\apps\activities\models.py:51 .\apps\activities\models.py:115
-#: .\apps\home\models.py:25 .\apps\species\models.py:152
+#: .\apps\home\models.py:27 .\apps\species\models.py:152
 msgid "Description"
 msgstr ""
 
@@ -48,20 +52,20 @@ msgstr ""
 #: .\apps\activities\models.py:60
 #: .\apps\activities\templates\activities\projects\list.html:4
 #: .\apps\home\context_processors.py:85
-#: .\apps\home\templates\home\search.html:42
+#: .\apps\home\templates\home\search.html:43
 msgid "Projects"
 msgstr ""
 
 #: .\apps\activities\models.py:123
-msgid "Site Visit"
+msgid "Field Trip"
 msgstr ""
 
 #: .\apps\activities\models.py:124
 #: .\apps\activities\templates\activities\site_visits\list.html:4
 #: .\apps\activities\templates\activities\site_visits\site_visit_list.html:9
 #: .\apps\home\context_processors.py:81
-#: .\apps\home\templates\home\search.html:63
-msgid "Site Visits"
+#: .\apps\home\templates\home\search.html:64
+msgid "Field Trips"
 msgstr ""
 
 #: .\apps\activities\templates\activities\author.html:8
@@ -75,7 +79,7 @@ msgid "Author"
 msgstr ""
 
 #: .\apps\activities\templates\activities\components\search.html:4
-#: .\apps\home\templates\home\search.html:4
+#: .\apps\home\templates\home\search.html:5
 msgid "Search"
 msgstr ""
 
@@ -115,17 +119,23 @@ msgid "Recent Projects"
 msgstr ""
 
 #: .\apps\activities\templates\activities\site_visits\list.html:5
-msgid "Site Visits Meta Description"
+#, fuzzy
+#| msgid "Site Visits Meta Description"
+msgid "Field Trips Meta Description"
 msgstr ""
 "Explore our latest site visits to study bats in their natural habitats. "
 "Learn about our methodologies and findings from the field."
 
 #: .\apps\activities\templates\activities\site_visits\recent_site_visit_list.html:4
-msgid "Recent Site Visits"
+msgid "Recent Field Trips"
 msgstr ""
 
 #: .\apps\activities\templates\activities\site_visits\site_visit_list.html:10
-msgid "Our Recent Site Visits"
+msgid "Our Recent Field Trips"
+msgstr ""
+
+#: .\apps\articles\apps.py:8
+msgid "Articles"
 msgstr ""
 
 #: .\apps\articles\models.py:25
@@ -133,7 +143,7 @@ msgid "Link"
 msgstr ""
 
 #: .\apps\articles\models.py:34
-msgid "Article"
+msgid "Publication"
 msgstr ""
 
 #: .\apps\articles\models.py:35 .\apps\articles\templates\articles\list.html:4
@@ -141,14 +151,16 @@ msgstr ""
 #: .\apps\articles\templates\articles\list.html:21
 #: .\apps\home\context_processors.py:94
 #: .\apps\home\templates\home\components\article_list.html:8
-msgid "Articles"
+msgid "Publications"
 msgstr ""
 
 #: .\apps\articles\templates\articles\list.html:5
-msgid "Articles Meta Description"
+#, fuzzy
+#| msgid "Bats Meta Description"
+msgid "Publications Meta Description"
 msgstr ""
-"Read expert articles on bat biology, conservation, and ecology. Stay "
-"informed with the latest insights."
+"Learn about their biology, behavior, and ecological importance of bats "
+"through our research."
 
 #: .\apps\home\admin.py:20 .\apps\home\admin.py:21
 msgid "Administration"
@@ -158,14 +170,15 @@ msgstr ""
 msgid "Welcome to the Administration"
 msgstr ""
 
-#: .\apps\home\context_processors.py:37 .\apps\home\context_processors.py:50
-msgid "All"
-msgstr ""
-
-#: .\apps\home\context_processors.py:74 .\apps\home\templates\home\home.html:4
-#: .\apps\home\views.py:43 .\apps\home\views.py:53 .\apps\species\views.py:28
+#: .\apps\home\apps.py:9 .\apps\home\context_processors.py:74
+#: .\apps\home\templates\home\home.html:4 .\apps\home\views.py:43
+#: .\apps\home\views.py:53 .\apps\species\views.py:28
 #: .\apps\species\views.py:46
 msgid "Home"
+msgstr ""
+
+#: .\apps\home\context_processors.py:37 .\apps\home\context_processors.py:50
+msgid "All"
 msgstr ""
 
 #: .\apps\home\context_processors.py:75 .\apps\home\templates\home\about.html:5
@@ -175,64 +188,61 @@ msgstr ""
 msgid "About Us"
 msgstr ""
 
-#: .\apps\home\context_processors.py:77
-msgid "Activities"
-msgstr ""
-
 #: .\apps\home\context_processors.py:90
-#: .\apps\home\templates\home\search.html:21 .\apps\species\models.py:130
+#: .\apps\home\templates\home\search.html:22 .\apps\species\models.py:129
+#: .\apps\species\models.py:130 .\apps\species\models.py:165
 #: .\apps\species\templates\species\list.html:4
 #: .\apps\species\templates\species\list.html:20 .\apps\species\views.py:29
 #: .\apps\species\views.py:47
-msgid "Bats"
-msgstr ""
-
-#: .\apps\home\models.py:22
-msgid "Title"
-msgstr ""
-
-#: .\apps\home\models.py:23
-msgid "Sub Title"
+msgid "Species"
 msgstr ""
 
 #: .\apps\home\models.py:24
-msgid "Image"
+msgid "Title"
+msgstr ""
+
+#: .\apps\home\models.py:25
+msgid "Sub Title"
 msgstr ""
 
 #: .\apps\home\models.py:26
+msgid "Image"
+msgstr ""
+
+#: .\apps\home\models.py:28
 msgid "Order"
 msgstr ""
 
-#: .\apps\home\models.py:31
+#: .\apps\home\models.py:33
 msgid "Carousel Item"
 msgstr ""
 
-#: .\apps\home\models.py:32
+#: .\apps\home\models.py:34
 msgid "Carousel Items"
 msgstr ""
 
-#: .\apps\home\models.py:62
+#: .\apps\home\models.py:64
 msgid "About"
 msgstr ""
 
-#: .\apps\home\models.py:63 .\apps\home\templates\home\privacy_policy.html:5
+#: .\apps\home\models.py:65 .\apps\home\templates\home\privacy_policy.html:5
 #: .\apps\home\templates\home\privacy_policy.html:21 .\apps\home\views.py:54
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\apps\home\models.py:71
+#: .\apps\home\models.py:73
 msgid "Key"
 msgstr ""
 
-#: .\apps\home\models.py:73
+#: .\apps\home\models.py:75
 msgid "Content"
 msgstr ""
 
-#: .\apps\home\models.py:79
+#: .\apps\home\models.py:81
 msgid "Static Text"
 msgstr ""
 
-#: .\apps\home\models.py:80
+#: .\apps\home\models.py:82
 msgid "Static Texts"
 msgstr ""
 
@@ -252,7 +262,7 @@ msgid "Discover More"
 msgstr ""
 
 #: .\apps\home\templates\home\components\article_list.html:9
-msgid "Our Recent Articles"
+msgid "Our Recent Publications"
 msgstr ""
 
 #: .\apps\home\templates\home\components\author_list.html:8
@@ -284,11 +294,11 @@ msgid "Total Genuses"
 msgstr ""
 
 #: .\apps\home\templates\home\components\species_counter.html:48
-msgid "Bat icon"
+msgid "Species icon"
 msgstr ""
 
 #: .\apps\home\templates\home\components\species_counter.html:58
-msgid "Total Bats"
+msgid "Total Species"
 msgstr ""
 
 #: .\apps\home\templates\home\home.html:5
@@ -304,17 +314,17 @@ msgstr ""
 "Learn how we collect, use, and protect your data while you explore our bat "
 "research website. Read our privacy policy for full details."
 
-#: .\apps\home\templates\home\search.html:5
+#: .\apps\home\templates\home\search.html:6
 msgid "Search Meta Description"
 msgstr ""
 "Find in-depth information on bat research, conservation, and articles. Use "
 "our search tool to explore our extensive database of bat-related content."
 
-#: .\apps\home\templates\home\search.html:83
+#: .\apps\home\templates\home\search.html:84
 msgid "No Entry Found"
 msgstr ""
 
-#: .\apps\home\templates\home\search.html:88
+#: .\apps\home\templates\home\search.html:89
 #: .\apps\shared\templates\shared\400.html:21
 #: .\apps\shared\templates\shared\404.html:24
 msgid "Go Back Home"
@@ -345,6 +355,7 @@ msgstr ""
 msgid "Page Not Found"
 msgstr ""
 
+#: .\apps\shared\templates\shared\500.html:15
 #: .\apps\shared\templates\shared\500.html:31
 msgid "Server Error"
 msgstr ""
@@ -356,6 +367,7 @@ msgid ""
 "                "
 msgstr ""
 
+#: .\apps\shared\templates\shared\503.html:15
 #: .\apps\shared\templates\shared\503.html:31
 msgid "Site is under maintenance"
 msgstr ""
@@ -418,6 +430,10 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
+#: .\apps\species\apps.py:9
+msgid "Bats"
+msgstr ""
+
 #: .\apps\species\models.py:40
 msgid "Families"
 msgstr ""
@@ -435,32 +451,33 @@ msgstr ""
 msgid "Is in Red List"
 msgstr ""
 
-#: .\apps\species\models.py:129 .\apps\species\models.py:151
-#: .\apps\species\models.py:165
+#: .\apps\species\models.py:151
 msgid "Bat"
 msgstr ""
 
 #: .\apps\species\models.py:156
-msgid "Bat Attribute"
+msgid "Species Attribute"
 msgstr ""
 
 #: .\apps\species\models.py:157
-msgid "Bat Attributes"
+msgid "Species Attributes"
 msgstr ""
 
 #: .\apps\species\models.py:172
-msgid "Bat Image"
+msgid "Species Image"
 msgstr ""
 
 #: .\apps\species\models.py:173
-msgid "Bat Images"
+msgid "Species Images"
 msgstr ""
 
 #: .\apps\species\templates\species\list.html:5
-msgid "Bats Meta Description"
+#, fuzzy
+#| msgid "Search Meta Description"
+msgid "Species Meta Description"
 msgstr ""
-"Learn about their biology, behavior, and ecological importance of bats "
-"through our research."
+"Find in-depth information on bat research, conservation, and articles. Use "
+"our search tool to explore our extensive database of bat-related content."
 
 #: .\web\settings.py:162
 msgid "Azerbaijani"
@@ -469,3 +486,8 @@ msgstr ""
 #: .\web\settings.py:163
 msgid "English"
 msgstr ""
+
+#~ msgid "Articles Meta Description"
+#~ msgstr ""
+#~ "Read expert articles on bat biology, conservation, and ecology. Stay "
+#~ "informed with the latest insights."

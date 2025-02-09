@@ -38,7 +38,9 @@ class ProjectDetailView(View):
     http_method_names = ["get"]
 
     def get(self, request: HttpRequest, slug: str) -> HttpResponse:
-        project: Optional[Project] = Project.entries.single(GetProjectBySlugSpecification(slug))
+        project: Optional[Project] = Project.entries.single(
+            GetProjectBySlugSpecification(slug)
+        )
 
         if not project:
             logger.error("Project with slug %s not found", slug)
@@ -76,10 +78,12 @@ class SiteVisitDetailView(View):
     http_method_names = ["get"]
 
     def get(self, request: HttpRequest, slug: str) -> HttpResponse:
-        site_visit: Optional[SiteVisit] = SiteVisit.entries.single(GetSiteVisitBySlugSpecification(slug))
+        site_visit: Optional[SiteVisit] = SiteVisit.entries.single(
+            GetSiteVisitBySlugSpecification(slug)
+        )
 
         if not site_visit:
-            logger.error("Site Visit with slug %s not found", slug)
+            logger.error("Field Trip with slug %s not found", slug)
             return HttpResponseNotFound()
 
         recent_site_visits = SiteVisit.entries.list(

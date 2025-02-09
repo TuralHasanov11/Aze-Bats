@@ -120,8 +120,8 @@ class SiteVisit(models.Model):
     entries = SiteVisitManager()
 
     class Meta:
-        verbose_name = _("Site Visit")
-        verbose_name_plural = _("Site Visits")
+        verbose_name = _("Field Trip")
+        verbose_name_plural = _("Field Trips")
         ordering = ["-created_at"]
 
     def __str__(self):
@@ -133,7 +133,7 @@ class SiteVisit(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("apps.activities:site-visit-detail", kwargs={"slug": self.slug})
+        return reverse("apps.activities:field-trip-detail", kwargs={"slug": self.slug})
 
 
 @receiver(pre_save, sender=SiteVisit)
